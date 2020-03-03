@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoolrApp", "PoolrApp\PoolrApp.csproj", "{267B16F1-97F9-466D-818D-50B3D7295646}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoolrAppTest", "PoolrAppTest\PoolrAppTest.csproj", "{9F8EDF57-4114-468C-AEAF-1B4F459D8255}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{267B16F1-97F9-466D-818D-50B3D7295646}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{267B16F1-97F9-466D-818D-50B3D7295646}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{267B16F1-97F9-466D-818D-50B3D7295646}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{267B16F1-97F9-466D-818D-50B3D7295646}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F8EDF57-4114-468C-AEAF-1B4F459D8255}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F8EDF57-4114-468C-AEAF-1B4F459D8255}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F8EDF57-4114-468C-AEAF-1B4F459D8255}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F8EDF57-4114-468C-AEAF-1B4F459D8255}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7E9F02AA-CC47-42C1-A2F2-E1A61B974E04}
+	EndGlobalSection
+EndGlobal

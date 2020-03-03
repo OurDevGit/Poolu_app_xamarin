@@ -1,0 +1,9 @@
+<div class="footerMenu">
+    
+</div>
+<div class="copyright" style="margin-top:5px;align-items:flex-end">
+    @Html.DevExpress().Label(settings => {
+        settings.EncodeHtml = false;
+        settings.Text = DateTime.Now.Year + " &copy; Copyright by Poolr App";
+    }).GetHtml()
+</div>

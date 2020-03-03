@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<menu>
+  <group Text="Tickets">
+    <item Text="Queue" />
+    <item Text="Pending" />
+    <item Text="All" />
+  </group>
+  <group Text="Pools">
+    <item Text="SQL Server 2005" />
+    <item Text="SQL Server 2008" />
+    <item Text="SQL Server 2008 R2" />
+  </group>
+  <group Text="Users">
+    <item Text="Chrome" />
+    <item Text="Firefox" />
+    <item Text="Internet Explorer" />
+    <item Text="Safari" />
+    <item Text="Opera" />
+  </group>
+  <group Text="Staffs">
+    <item Text="C#" />
+    <item Text="Visual Basic" />
+    <item Text="C++" />
+    <item Text="Java" />
+    <item Text="PHP" />
+  </group>
+</menu>
