@@ -1,27 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <menu>
   <group Text="Tickets">
-    <item Text="Queue" />
-    <item Text="Pending" />
-    <item Text="All" />
+    <item Text="Pending" Name="Pending" NavigateUrl="~/Ticket/List?statusId=0" />
+    <item Text="Approved" Name="Prev Pending" NavigateUrl="~/Ticket/List?statusId=3" />
+    <item Text="Declined" Name="Declined" NavigateUrl="~/Ticket/List?statusId=1" />
+    <item Text="" />
   </group>
   <group Text="Pools">
-    <item Text="SQL Server 2005" />
-    <item Text="SQL Server 2008" />
-    <item Text="SQL Server 2008 R2" />
+    <item Text="Pool Types" NavigateUrl="~/PoolTypes/List" />
+    <item Text="Pool Updates" NavigateUrl="~/Pools/List" />
+    <!--
+    <item Text="Draw Dates" NavigateUrl="~/DrawDates/List" />
+    -->
+    <item Text="" />
   </group>
   <group Text="Users">
-    <item Text="Chrome" />
-    <item Text="Firefox" />
-    <item Text="Internet Explorer" />
-    <item Text="Safari" />
-    <item Text="Opera" />
+    <item Text="Poolr Users" NavigateUrl ="~/Account/Users" />
+    <item Text="Admins" NavigateUrl ="~/Account/Admins" />
+    <item Text="" />
   </group>
-  <group Text="Staffs">
-    <item Text="C#" />
-    <item Text="Visual Basic" />
-    <item Text="C++" />
-    <item Text="Java" />
-    <item Text="PHP" />
+  <group Text="Documents">
+    <item Text="Privacy Policy" NavigateUrl ="~/Document/List?docId=1"  />
+    <item Text="Terms and Conditions" NavigateUrl ="~/Document/List?docId=2" />
+    <item Text="Plain Talk" NavigateUrl ="~/Document/List?docId=3" />
+    <item Text="Rules to The Pool" NavigateUrl ="~/Document/List?docId=4" />
+    <item Text="" />
   </group>
 </menu>

@@ -1,0 +1,139 @@
+﻿
+
+@{
+    Html.EnableClientValidation();
+    Html.EnableUnobtrusiveJavaScript();
+
+    var grid = Html.DevExpress().GridView(settings =>
+    {
+        settings.Name = "gvAdmin";
+        settings.KeyFieldName = "AdminId";
+        settings.CallbackRouteValues = new { Controller = "Account", Action = "AdminGridViewPartial" };
+        settings.Width = 620;
+
+        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Account", Action = "AdminAddNew" };
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Account", Action = "AdminUpdate" };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Account", Action = "AdminDelete" };
+        settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+        settings.SettingsBehavior.ConfirmDelete = true;
+        settings.SettingsEditing.NewItemRowPosition = GridViewNewItemRowPosition.Bottom;
+        settings.Styles.AlternatingRow.Enabled = DefaultBoolean.True;
+
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.ShowNewButton = true;
+        settings.CommandColumn.ShowDeleteButton = true;
+        settings.CommandColumn.ShowEditButton = true;
+
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "FirstName";
+            column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+            column.HeaderStyle.Font.Bold = true;
+            column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "LastName";
+            column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+            column.HeaderStyle.Font.Bold = true;
+            column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "PhoneNumber";
+            column.Caption = "Phone";
+            column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+            column.HeaderStyle.Font.Bold = true;
+            column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+            column.PropertiesEdit.DisplayFormatString = "(###) ###-####";
+
+            var textBoxProperties = column.PropertiesEdit as TextBoxProperties;
+            textBoxProperties.MaskSettings.Mask = "(999) 000-0000";
+            textBoxProperties.MaskSettings.IncludeLiterals = MaskIncludeLiteralsMode.None;
+            textBoxProperties.MaskSettings.ErrorText = "Invalid Phone Number";
+            //textBoxProperties.ValidationSettings.Display = Display.Dynamic;
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Email";
+            column.ColumnType = MVCxGridViewColumnType.TextBox;
+            column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+            column.HeaderStyle.Font.Bold = true;
+            column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+            column.Width = 180;
+
+            var textBoxProperties = column.PropertiesEdit as TextBoxProperties;
+            textBoxProperties.ValidationSettings.EnableCustomValidation = true;
+            textBoxProperties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithTooltip;
+            textBoxProperties.ClientSideEvents.Validation = "validateEmail";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Password";
+            column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+            column.HeaderStyle.Font.Bold = true;
+            column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+            column.Visible = false;
+
+            var textBoxProperties = column.PropertiesEdit as TextBoxProperties;
+            textBoxProperties.Password = true;
+            textBoxProperties.ValidationSettings.EnableCustomValidation = true;
+            textBoxProperties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithTooltip;
+            textBoxProperties.ClientSideEvents.Validation = "validatePassword";
+
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "IsActive";
+            column.Caption = "Active";
+            column.ColumnType = MVCxGridViewColumnType.CheckBox;
+            column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+            column.HeaderStyle.Font.Bold = true;
+            column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+        });
+
+        settings.EditFormLayoutProperties.ColCount = 1;
+        settings.EditFormLayoutProperties.Items.Add("FirstName");
+        settings.EditFormLayoutProperties.Items.Add("LastName");
+        settings.EditFormLayoutProperties.Items.Add("PhoneNumber");
+        settings.EditFormLayoutProperties.Items.Add("Email");
+        settings.EditFormLayoutProperties.Items.Add("Password");
+        settings.EditFormLayoutProperties.Items.Add("Active");
+
+        settings.EditFormLayoutProperties.Items.AddCommandItem(itemSettings =>
+        {
+            itemSettings.ColSpan = 1;
+            itemSettings.HorizontalAlign = FormLayoutHorizontalAlign.Center;
+        });
+        settings.EditFormLayoutProperties.SettingsAdaptivity.AdaptivityMode = FormLayoutAdaptivityMode.SingleColumnWindowLimit;
+        settings.EditFormLayoutProperties.SettingsAdaptivity.SwitchToSingleColumnAtWindowInnerWidth = 700;
+
+        settings.Styles.Header.Wrap = DefaultBoolean.True;
+        settings.SettingsPager.EnableAdaptivity = true;
+
+        settings.CustomColumnDisplayText = (s, e) =>
+        {
+            if (e.Column.FieldName == "PhoneNumber")
+            {
+                string original = e.Value.ToString().Trim();
+                e.DisplayText = string.Format("({0}) {1}-{2}", original.Substring(0, 3), original.Substring(3, 3), original.Substring(6, 4));
+
+            }
+        };
+
+        settings.CellEditorInitialize = (s, e) =>
+        {
+            e.Editor.ReadOnly = false;
+        };
+
+    });
+    if (ViewData["EditError"] != null)
+    {
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+@grid.Bind(Model).GetHtml()

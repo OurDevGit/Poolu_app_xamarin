@@ -1,0 +1,121 @@
+﻿
+
+@{
+    Html.EnableClientValidation();
+    Html.EnableUnobtrusiveJavaScript();
+
+    var grid = Html.DevExpress().GridView(settings =>
+    {
+        settings.Name = "gvPools";
+        settings.KeyFieldName = "PoolId";
+        settings.CallbackRouteValues = new { Controller = "Pools", Action = "PoolsGridViewPartial" };
+        settings.Width = 820;
+        settings.Styles.AlternatingRow.Enabled = DefaultBoolean.True;
+        settings.SettingsPager.PageSize = 10;
+
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Pools", Action = "UpdatePool" };
+
+        settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+        settings.SettingsBehavior.ConfirmDelete = true;
+        settings.SettingsEditing.NewItemRowPosition = GridViewNewItemRowPosition.Bottom;
+
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.ShowEditButton = true;
+
+        settings.CustomColumnDisplayText = (sender, e) =>
+        {
+            if (e.Column.FieldName == "WinningNumbers")
+            {
+                e.DisplayText = System.Text.RegularExpressions.Regex.Replace(e.Value.ToString(), @"(.{2})", "$0 ");
+
+            }
+        };
+
+        settings.Columns.Add("PoolName");
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "TicketType";
+            column.Caption = "Ticket Type";
+            column.ReadOnly = true;
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "DrawDate";
+            column.Caption = "Draw Date";
+            column.PropertiesEdit.DisplayFormatString = "d";
+            column.SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
+            column.Width = 100;
+            column.ReadOnly = true;
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Jackpot";
+            column.Width = 130;
+            column.PropertiesEdit.DisplayFormatString = "C";
+            var textBoxProperties = column.PropertiesEdit as TextBoxProperties;
+            textBoxProperties.Width = 320;
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "WinningNumbers";
+            column.Width = 130;
+            var textBoxProperties = column.PropertiesEdit as TextBoxProperties;
+            //textBoxProperties.ValidationSettings.EnableCustomValidation = true;
+            textBoxProperties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithTooltip;
+            textBoxProperties.ClientSideEvents.Init = "function (s, e) { if (cboPoolStatus.GetValue() == 1) s.SetEnabled(false); }";
+            //textBoxProperties.ClientSideEvents.Validation = "function(s, e) { if (cboPoolStatus.GetValue() == 1) return; if (e.value == null || e.value.length != 12) { e.isValid = false; e.errorText = 'Winning number must be 12 digits'; } else return; }";
+
+            textBoxProperties.ClientSideEvents.KeyPress = "isNumberKey";
+            textBoxProperties.MaxLength = 13;
+            textBoxProperties.Width = 320;
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "UpdatedBy";
+            column.ReadOnly = true;
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "DisplayUpdateTime";
+            column.Caption = "Updated Time(EST)";
+            column.ReadOnly = true;
+        });
+
+        settings.EditFormLayoutProperties.ColCount = 1;
+        settings.EditFormLayoutProperties.Items.Add("Jackpot");
+        settings.EditFormLayoutProperties.Items.Add("WinningNumbers");
+
+        settings.EditFormLayoutProperties.Items.AddCommandItem(itemSettings =>
+        {
+            itemSettings.ColSpan = 1;
+            itemSettings.HorizontalAlign = FormLayoutHorizontalAlign.Center;
+        });
+
+        settings.Styles.Cell.HorizontalAlign = HorizontalAlign.Center;
+        settings.Styles.Header.HorizontalAlign = HorizontalAlign.Center;
+        settings.Styles.Header.Font.Bold = true;
+        settings.Styles.Header.Wrap = DefaultBoolean.True;
+        settings.SettingsPager.EnableAdaptivity = true;
+
+        settings.SettingsPager.Position = PagerPosition.Bottom;
+        settings.SettingsPager.FirstPageButton.Visible = true;
+        settings.SettingsPager.LastPageButton.Visible = true;
+        settings.SettingsPager.PageSizeItemSettings.Visible = true;
+        settings.SettingsPager.PageSizeItemSettings.Items = new string[] { "10", "20", "40", "60" };
+
+        settings.ClientSideEvents.BeginCallback = @"function (s, e) {e.customArgs['PoolStatus'] = cboPoolStatus.GetValue() }";
+
+        settings.CellEditorInitialize = (s, e) =>
+        {
+            e.Editor.ReadOnly = false;
+        };
+
+    });
+    if (ViewData["EditError"] != null)
+    {
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+@grid.Bind(Model).GetHtml()

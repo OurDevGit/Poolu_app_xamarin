@@ -1,0 +1,32 @@
+﻿@using (Html.BeginForm("DrawDatePartial", "Ticket", FormMethod.Post))
+{
+<div>
+    @Html.DevExpress().ComboBox(
+                settings =>
+                {
+                    settings.Name = "cboTicketType";
+                    settings.Width = 180;
+                    settings.SelectedIndex = -1;
+                    //settings.CallbackRouteValues = new { Controller = "Ticket", Action = "DrawDatePartial" };
+                    settings.Properties.NullText = "Select a Ticket Type...";
+                    settings.Properties.TextField = "TicketTypeName";
+                    settings.Properties.ValueField = "TicketTypeName";
+                    settings.Properties.ClearButton.DisplayMode = ClearButtonDisplayMode.Never;
+
+
+                }
+                ).BindList(Model).GetHtml()
+</div>
+<div class="editor" style="margin-top:5px">
+    @Html.DevExpress().TextBox(
+                    settings =>
+                    {
+                        settings.Name = "textBox2";
+                        settings.Width = 180;
+                        settings.Properties.NullText = "Draw date";
+                        settings.Enabled = false;
+                    }
+                ).GetHtml()
+</div>
+
+}

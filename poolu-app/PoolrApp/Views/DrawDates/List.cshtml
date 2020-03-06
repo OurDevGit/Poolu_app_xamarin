@@ -1,0 +1,28 @@
+﻿@model PoolrApp.Models.ViewModels.LotteryDrawDateViewModel
+
+<script src="~/Scripts/PoolrDrawDates.js"></script>
+
+<div class="row" style="margin-top:20px;margin-left:30px">
+    <div>
+        
+        <div class="col-sm-2">  
+            @Html.Partial("LotteryTypesPartial", Model.TiketTypes)
+        </div>
+        <div class="col-sm-pull-2">
+            <button id="btnSaveDrawDates" type="submit" class="btn btn-primary" >Save Draw Dates</button>
+        </div>
+    </div>
+</div>
+
+<div class="row"  style="margin-top:10px;margin-left:30px">
+    <div>
+        
+        <div class="col-sm-2">
+            @Html.Partial("LotteryDrawDatePartial", Model.LotteryDrawDates)
+        </div>
+        <div class="col-sm-pull-2">
+         
+        </div>
+    </div>
+</div>
+

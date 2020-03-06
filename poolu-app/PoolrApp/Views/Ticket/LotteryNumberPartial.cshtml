@@ -1,0 +1,97 @@
+﻿@{
+
+    Html.EnableClientValidation();
+    Html.EnableUnobtrusiveJavaScript();
+
+    var grid = Html.DevExpress().GridView(settings =>
+    {
+        settings.Name = "gridLotteryNumbers";
+        settings.KeyFieldName = "LotteryNumberId";
+        settings.CallbackRouteValues = new { Controller = "Ticket", Action = "LotteryNumberPartial", TicketId = ViewData["TicketId"] };
+        settings.Width = Unit.Percentage(100); //400;
+settings.SettingsPager.AlwaysShowPager = false;
+        settings.Styles.AlternatingRow.Enabled = DefaultBoolean.True;
+
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.ShowNewButton = true;
+        settings.CommandColumn.ShowDeleteButton = true;
+        settings.CommandColumn.ShowEditButton = true;
+
+        settings.SettingsEditing.Mode = GridViewEditingMode.Inline;
+        settings.SettingsEditing.NewItemRowPosition = GridViewNewItemRowPosition.Bottom;
+        settings.SettingsBehavior.ConfirmDelete = true;
+        settings.SettingsPager.EnableAdaptivity = true;
+
+        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "Ticket", Action = "LotteryNumberAddNew", TicketId = ViewData["TicketId"] };
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "Ticket", Action = "LotteryNumberUpdate", TicketId = ViewData["TicketId"] };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "Ticket", Action = "LotteryNumberDelete", TicketId = ViewData["TicketId"] };
+
+        settings.CustomColumnDisplayText = (sender, e) =>
+        {
+            if (e.Column.FieldName == "MatchNumbers")
+            {
+                e.DisplayText = System.Text.RegularExpressions.Regex.Replace(e.Value.ToString(), @"(.{2})", "$0 ");
+
+            }
+        };
+
+        settings.Columns.Add(column =>
+        {
+            column.Caption = "White Balls";
+            column.FieldName = "MatchNumbers";
+            column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+            column.CellStyle.Font.Bold = true;
+            column.CellStyle.Font.Size = 9;
+            column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+            column.Width = 180;
+
+            var textBoxProperties = column.PropertiesEdit as TextBoxProperties;
+            textBoxProperties.ValidationSettings.EnableCustomValidation = true;
+            textBoxProperties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithTooltip;
+            textBoxProperties.ClientSideEvents.Validation = "function(s, e) {" +
+            "if (e.value == null || e.value.length != 10) { e.isValid = false; e.errorText = 'White Balls must be 10 digits'; } else return; }";
+
+
+            textBoxProperties.ClientSideEvents.KeyPress = "isNumberKey";
+            textBoxProperties.MaxLength = 10;
+
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.Caption = "Color Ball";
+            column.FieldName = "FinalNumbers";
+            column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+            column.CellStyle.Font.Bold = true;
+            column.CellStyle.Font.Size = 9;
+            column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+
+
+            var textBoxProperties = column.PropertiesEdit as TextBoxProperties;
+            textBoxProperties.ValidationSettings.EnableCustomValidation = true;
+            textBoxProperties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithTooltip;
+            textBoxProperties.ClientSideEvents.Validation = "function(s, e) {" +
+            "if (e.value == null || e.value.length != 2) { e.isValid = false; e.errorText = 'Color Ball must be 2 digits'; } else return; }";
+
+            textBoxProperties.ClientSideEvents.KeyPress = "isNumberKey";
+            textBoxProperties.MaxLength = 2;
+
+        });
+
+
+    settings.CellEditorInitialize = (sender, e) =>
+        {
+            ASPxEdit editor = (ASPxEdit)e.Editor;
+            editor.ValidationSettings.Display = Display.Dynamic;
+        };
+
+    });
+
+    if (ViewData["EditError"] != null)
+    {
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+
+}
+
+@grid.Bind(Model).GetHtml()

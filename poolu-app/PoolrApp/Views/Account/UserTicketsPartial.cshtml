@@ -1,0 +1,65 @@
+﻿
+@{
+    Html.EnableClientValidation();
+    Html.EnableUnobtrusiveJavaScript();
+    var grid = Html.DevExpress().GridView(settings =>
+    {
+        settings.Name = "gridUserTickets" + ViewData["UserId"];
+        settings.SettingsDetail.MasterGridName = "gvUsers";
+        settings.CallbackRouteValues = new { Controller = "Account", Action = "UserTicketsPartial", UserId = ViewData["UserId"] };
+        settings.Width = Unit.Percentage(100);
+        settings.SettingsPager.PageSize = 10;
+        settings.Styles.AlternatingRow.Enabled = DefaultBoolean.True;
+
+
+        settings.KeyFieldName = "TicketId";
+        settings.Columns.Add(column =>
+        {
+            column.Caption = "Lottery Pool";
+            column.FieldName = "PoolName";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.Caption = "Draw Date(EST)";
+            column.FieldName = "DrawDate";
+            column.SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
+            column.PropertiesEdit.DisplayFormatString = "d";
+        });
+
+        settings.Columns.Add("TicketStatus");
+
+        settings.Columns.Add(column =>
+        {
+            column.Caption = "Submit Time(EST)";
+            column.FieldName = "UploadTime";
+
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.Caption = "Approved Time(EST)";
+            column.FieldName = "ProcessedTime";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.Caption = "Approved By";
+            column.FieldName = "ProcessedBy";
+        });
+
+
+        settings.Styles.Cell.HorizontalAlign = HorizontalAlign.Center;
+        settings.Styles.Header.HorizontalAlign = HorizontalAlign.Center;
+        settings.Styles.Header.Font.Bold = true;
+
+        settings.SettingsPager.Position = PagerPosition.Bottom;
+        settings.SettingsPager.FirstPageButton.Visible = true;
+        settings.SettingsPager.LastPageButton.Visible = true;
+        settings.SettingsPager.PageSizeItemSettings.Visible = true;
+        settings.SettingsPager.PageSizeItemSettings.Items = new string[] { "10", "20", "40", "60" };
+        settings.SettingsPager.EnableAdaptivity = true;
+
+
+    });
+}
+@grid.Bind(Model).GetHtml()

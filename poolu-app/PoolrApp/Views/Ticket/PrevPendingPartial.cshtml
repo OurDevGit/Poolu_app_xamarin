@@ -1,0 +1,77 @@
+﻿
+@Html.DevExpress().GridView(settings =>
+{
+    settings.Name = "gridPrevPendingTickets";
+    settings.CallbackRouteValues = new { Controller = "Ticket", Action = "PrevPendingPartial" };
+    settings.Width = Unit.Percentage(100);
+    settings.SettingsPager.PageSize = 20;
+    settings.Styles.AlternatingRow.Enabled = DefaultBoolean.True;
+
+    settings.Toolbars.Add(toolbar =>
+    {
+        toolbar.Enabled = true;
+        toolbar.Position = GridToolbarPosition.Top;
+        toolbar.ItemAlign = GridToolbarItemAlign.Left;
+        toolbar.Items.Add(GridViewToolbarCommand.Refresh, true);
+    });
+
+    settings.KeyFieldName = "TicketId";
+    settings.Columns.Add(column =>
+    {
+        column.Caption = "Lottery Pool";
+        column.FieldName = "PoolName";
+    });
+
+    settings.Columns.Add("UserName");
+    settings.Columns.Add("Phone");
+    settings.Columns.Add("City");
+    settings.Columns.Add("State");
+    settings.Columns.Add(column =>
+    {
+        column.Caption = "Draw Time(EST)";
+        column.FieldName = "DrawDate";
+
+        column.ColumnType = MVCxGridViewColumnType.DateEdit;
+        column.Settings.AutoFilterCondition = AutoFilterCondition.Equals;
+        column.SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
+    });
+    settings.Columns.Add(column =>
+    {
+        column.Caption = "Submit Time(EST)";
+        column.FieldName = "UploadTime";
+    });
+
+    settings.Columns.Add("TicketStatus");
+
+    settings.Styles.Cell.HorizontalAlign = HorizontalAlign.Center;
+    settings.Styles.Header.HorizontalAlign = HorizontalAlign.Center;
+    settings.Styles.Header.Font.Bold = true;
+
+    settings.SettingsPager.Position = PagerPosition.Bottom;
+    settings.SettingsPager.FirstPageButton.Visible = true;
+    settings.SettingsPager.LastPageButton.Visible = true;
+    settings.SettingsPager.PageSizeItemSettings.Visible = true;
+    settings.SettingsPager.PageSizeItemSettings.Items = new string[] { "10", "20", "40", "60" };
+
+    settings.SettingsDetail.AllowOnlyOneMasterRowExpanded = true;
+    settings.SettingsDetail.ShowDetailRow = true;
+    settings.SettingsPager.EnableAdaptivity = true;
+
+    settings.SetDetailRowTemplateContent(c =>
+    {
+        Html.RenderAction("DetailPartial", new
+        {
+            ticketId = DataBinder.Eval(c.DataItem, "TicketId"),
+            ticketStatusId = DataBinder.Eval(c.DataItem, "TicketStatusId"),
+            PoolId = DataBinder.Eval(c.DataItem, "PoolId"),
+            photoName = DataBinder.Eval(c.DataItem, "PhotoName")
+        });
+    });
+
+    //settings.PreRender = (sender, e) =>
+    //{
+    //    ((MVCxGridView)sender).DetailRows.ExpandRow(0);
+    //};
+
+
+}).Bind(Model.TicketList).GetHtml()

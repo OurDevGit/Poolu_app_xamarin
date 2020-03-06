@@ -1,7 +1,7 @@
-@if (!Request.IsAuthenticated)
+@if (Request.IsAuthenticated)
 {
     //@: Welcome <b>@User.Identity.Name</b>!
-    @:<font color="white">  Welcome <b>James Li</b>!</font>
+    @:<font color="white">  Welcome <b>@Session["AdminName"]</b>!</font>
     @:<font color="white"> | </font>
-    @Html.ActionLink("Logout", "LogOff", "Account", new { @style = "color:white;text-decoration: underline;" })
+    @Html.ActionLink("Logout", "Logout", "Account", null, new { @style = "color:white;text-decoration:none;" })
 }

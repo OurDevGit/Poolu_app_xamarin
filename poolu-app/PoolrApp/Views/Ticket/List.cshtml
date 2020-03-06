@@ -1,0 +1,298 @@
+﻿@using PoolrApp.Infrastructure;
+@using PoolrApp.Models;
+@model PoolrApp.Models.ViewModels.TicketsViewModel
+
+<script type="text/javascript">
+
+    function approveTicket(s, e, ticketId) {
+        if (gridLotteryNumbers.IsEditing()) {
+            e.processOnServer = false;
+            alert('Please Update or Cancel lottery number edit.');
+            return;
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "/Ticket/ValidateLotteryNumber",
+            data: '{ticketId: "' + ticketId + '" }',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                if (response !== null && !response.success) {
+                    e.processOnServer = false;
+                    alert(response.message);
+                };
+
+                if (response !== null && response.success) {
+                    e.processOnServer = confirm('Approve this ticket?');
+                    if (e.processOnServer) {
+                        doApprove(ticketId, cboPools.GetValue(), termId.GetText());
+                    }
+                }
+            },
+            error: function (response) {
+                alert("error when approve Ticket");
+            }
+        });
+    }
+
+    function doApprove(ticketId, poolId, termId) {
+        $.ajax({
+            type: "POST",
+            url: "/Ticket/ApproveTicket",
+            data: JSON.stringify({ ticketid: ticketId, poolId: poolId, termId: termId }),
+            cache: false,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                if (response !== null) {
+                    alert(response.message);
+
+                    if (response.success) {
+                        window.location.href = "/Ticket/List?statusId=0";
+                    }
+                };
+
+            },
+            error: function (response) {
+                alert("error when Approve.");
+            }
+        });
+    }
+
+    function UpdateTicket(s, e, ticketId) {
+        if (gridLotteryNumbers.IsEditing()) {
+            e.processOnServer = false;
+            alert('Please Update or Cancel lottery number edit.');
+            return;
+        }
+
+
+        $.ajax({
+            type: "POST",
+            url: "/Ticket/ValidateLotteryNumber",
+            data: '{ticketId: "' + ticketId + '" }',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                if (response !== null && !response.success) {
+                    e.processOnServer = false;
+                    alert(response.message);
+                };
+
+                if (response !== null && response.success) {
+                    e.processOnServer = confirm('Update this ticket?');
+                    if (e.processOnServer) {
+                        doUpdate(ticketId, cboPools.GetValue(), termId.GetText());
+                    }
+                }
+            },
+            error: function (response) {
+                alert("error when change tcket pool.");
+            }
+        });
+    }
+
+    function doUpdate(ticketId, poolId, termId) {
+        $.ajax({
+            type: "POST",
+            url: "/Ticket/UpdateTicket",
+            data: JSON.stringify({ ticketId: ticketId, poolId: poolId, termId: termId }),
+            cache: false,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                if (response !== null) {
+                    alert(response.message);
+
+                    //if (response.success) {
+                    //    window.location.href = "/Ticket/List?statusId=3";
+                    //}
+                };
+
+            },
+            error: function (response) {
+                alert("error when do change.");
+            }
+        });
+    }
+
+    function declinePendingTicket(s, e, ticketId) {
+        if (gridLotteryNumbers.IsEditing()) {
+            e.processOnServer = false;
+            alert('Please Update or Cancel lottery number edit first.');
+            return;
+        }
+
+        e.processOnServer = confirm('Decline this ticket?');
+        if (!e.processOnServer) {
+            return;
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "/Ticket/DeclinePendingTicket",
+            data: '{ticketId: "' + ticketId + '" }',
+            cache: false,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                if (response !== null) {
+                    alert(response.message);
+
+                    if (response.success) {
+                        window.location.href = "/Ticket/List?statusId=0";
+                    }
+                };
+
+            },
+            error: function (response) {
+                alert("error when decline pending ticket");
+            }
+        });
+    }
+
+    function declineApprovedTicket(s, e, ticketId) {
+        if (gridLotteryNumbers.IsEditing()) {
+            e.processOnServer = false;
+            alert('Please Update or Cancel lottery number edit first.');
+            return;
+        }
+
+        e.processOnServer = confirm('Decline this ticket?');
+        if (!e.processOnServer) {
+            return;
+        }
+
+        var poolId = cboPools.GetValue();
+
+        $.ajax({
+            type: "POST",
+            url: "/Ticket/DeclineApprovedTicket",
+            data: '{ticketId: "' + ticketId + '", poolId: "' + poolId + '" }',
+            cache: false,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                if (response !== null) {
+                    alert(response.message);
+
+                    if (response.success) {
+                        window.location.href = "/Ticket/List?statusId=3";
+                    }
+                };
+
+            },
+            error: function (response) {
+                alert("error when decline approved ticket");
+            }
+        });
+    }
+
+    function deleteDeclinedTicket(s, e, ticketId) {
+        e.processOnServer = confirm('Delete this ticket?');
+        if (!e.processOnServer) {
+            return;
+        }
+
+        $.ajax({
+            type: "POST",
+            url: "/Ticket/DeleteDeclinedTicket",
+            data: '{ticketId: "' + ticketId + '" }',
+            cache: false,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                if (response !== null) {
+                    alert(response.message);
+
+                    if (response.success) {
+                        window.location.href = "/Ticket/List?statusId=1";
+                    }
+                };
+
+            },
+            error: function (response) {
+                alert("error when delete declined ticket");
+            }
+        });
+    }
+
+    function isNumberKey(s, e) {
+        var keycode = e.htmlEvent.keyCode;
+
+        if (keycode < 48 || keycode > 57) {
+            e.htmlEvent.preventDefault();
+        }
+
+        return;
+    }
+
+
+    function searchTicket(s, e) {
+
+        var ticketId = cboLottNum.GetValue();
+
+        if (ticketId === null) {
+            alert("Please enter and select a lottery number first.");
+            return;
+        }
+        
+        gridApprovedTickets.PerformCallback({ ticketId: ticketId });
+
+        cboLottNum.SetValue(null);
+    }
+
+
+</script>
+
+
+
+@if (Model.TicketStatusId == (int)TicketStatus.Pending)
+{
+    @Html.Partial("PendingPartial", Model)
+}
+else if (Model.TicketStatusId == (int)TicketStatus.Approved)
+{
+    <div class="row" style="margin-top:20px;margin-left:50px;margin-bottom:15px;width:800px">
+        <div class="col-xs-6">
+            @Html.DevExpress().ComboBox(
+                  settings =>
+                  {
+                      settings.Name = "cboLottNum";
+                      settings.Width = Unit.Percentage(100);
+                      settings.Properties.DropDownWidth = 350;
+                      settings.Properties.DropDownStyle = DropDownStyle.DropDownList;
+                      settings.Properties.TextField = "FullNumber";
+                      settings.Properties.ValueField = "TicketId";
+                      settings.Properties.ValueType = typeof(int);
+                      settings.Properties.FilterMinLength = 2;
+                      settings.Properties.NullText = "Enter a Lottery Number";
+                      settings.Properties.Caption = "Lottery Number";
+                      settings.Properties.ClearButton.DisplayMode = ClearButtonDisplayMode.OnHover;
+                   }
+              ).BindList(DataAccess.GetLotteryNumbers(TicketStatus.Approved)).GetHtml()
+        </div>
+        <div class="col-xs-6">
+            @Html.DevExpress().Button(
+                           settings =>
+                           {
+                               settings.Name = "btnImageAndText";
+                               settings.Width = 90;
+                               settings.UseSubmitBehavior = true;
+                               settings.Text = "Search";
+                               settings.ClientSideEvents.Click = "searchTicket";
+                           }).GetHtml()
+        </div>
+    </div>
+
+    @Html.Partial("ApprovedPartial", Model)
+}
+else if (Model.TicketStatusId == (int)TicketStatus.Declined)
+{
+    @Html.Partial("OnHoldPartial", Model)
+}
+
+
+
+

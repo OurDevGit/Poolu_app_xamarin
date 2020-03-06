@@ -10,6 +10,7 @@ namespace PoolrApp.App_Start
     using Ninject.Web.Common;
     using Ninject.Web.Common.WebHost;
 
+
     public static class NinjectWebCommon
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
@@ -48,8 +49,8 @@ namespace PoolrApp.App_Start
 
         private static void RegisterServices(IKernel kernel)
         {
-            //System.Web.Mvc.DependencyResolver.SetResolver(new
-            //    PoolrApp.Infrastructure.NinjectDependencyResolver(kernel));
+            System.Web.Mvc.DependencyResolver.SetResolver(new
+                PoolrApp.Infrastructure.NinjectDependencyResolver(kernel));
         }
 
     }

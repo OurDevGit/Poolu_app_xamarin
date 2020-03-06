@@ -1,0 +1,128 @@
+﻿
+
+@Html.DevExpress().GridView(settings =>
+{
+    settings.Name = "gridApprovedTickets";
+    settings.CallbackRouteValues = new { Controller = "Ticket", Action = "ApprovedPartial" };
+    settings.Width = Unit.Percentage(100);
+    settings.SettingsPager.PageSize = 20;
+    settings.Styles.AlternatingRow.Enabled = DefaultBoolean.True;
+    //settings.SettingsBehavior.AllowFocusedRow = true;
+    //settings.SettingsSearchPanel.Visible = true;
+    settings.Settings.ShowFilterRow = true;
+    settings.Settings.ShowGroupPanel = true;
+
+    settings.Toolbars.Add(toolbar =>
+    {
+        toolbar.Enabled = true;
+        toolbar.Position = GridToolbarPosition.Top;
+        toolbar.ItemAlign = GridToolbarItemAlign.Left;
+        toolbar.Items.Add(GridViewToolbarCommand.Refresh, true);
+
+        toolbar.Items.Add(i =>
+        {
+            i.Text = "Export to";
+            i.Image.IconID = DevExpress.Web.ASPxThemes.IconID.ActionsDownload16x16office2013;
+            i.BeginGroup = true;
+            i.Items.Add(GridViewToolbarCommand.ExportToPdf);
+            i.Items.Add(GridViewToolbarCommand.ExportToDocx);
+            i.Items.Add(GridViewToolbarCommand.ExportToRtf);
+            i.Items.Add(GridViewToolbarCommand.ExportToXls).Text = "Export to XLS(DataAware)";
+            i.Items.Add(exportitem =>
+            {
+                exportitem.Name = "CustomExportToXLS";
+                exportitem.Text = "Export to XLS(WYSIWYG)";
+                exportitem.Image.IconID = DevExpress.Web.ASPxThemes.IconID.ExportExporttoxls16x16office2013;
+            });
+            i.Items.Add(GridViewToolbarCommand.ExportToXlsx).Text = "Export to XLSX(DataAware)";
+            i.Items.Add(exportitem =>
+            {
+                exportitem.Name = "CustomExportToXLSX";
+                exportitem.Text = "Export to XLSX(WYSIWYG)";
+                exportitem.Image.IconID = DevExpress.Web.ASPxThemes.IconID.ExportExporttoxlsx16x16office2013;
+            });
+        });
+    });
+
+    settings.KeyFieldName = "TicketId";
+
+    settings.Columns.Add(column =>
+    {
+        column.Caption = "Lottery Pool";
+        column.FieldName = "PoolName";
+    });
+
+    settings.Columns.Add("UserName");
+    settings.Columns.Add("Phone");
+    settings.Columns.Add(column =>
+    {
+        column.Caption = "Terminal";
+        column.FieldName = "TerminalId";
+    });
+    settings.Columns.Add("City");
+    settings.Columns.Add("State");
+    settings.Columns.Add(column =>
+    {
+        column.Caption = "Draw Date(EST)";
+        column.FieldName = "DrawDate";
+        column.ColumnType = MVCxGridViewColumnType.DateEdit;
+        column.Settings.AutoFilterCondition = AutoFilterCondition.Equals;
+        column.SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
+    });
+
+    settings.Columns.Add(column =>
+    {
+        column.Caption = "Submit Time(EST)";
+        column.FieldName = "UploadTime";
+
+    });
+
+    settings.Columns.Add(column =>
+    {
+        column.Caption = "Approved Time(EST)";
+        column.FieldName = "ProcessedTime";
+    });
+    settings.Columns.Add(column =>
+    {
+        column.Caption = "Approved By";
+        column.FieldName = "ProcessedBy";
+    });
+    settings.Columns.Add("TicketStatus");
+
+    settings.Styles.Cell.HorizontalAlign = HorizontalAlign.Center;
+    settings.Styles.Header.HorizontalAlign = HorizontalAlign.Center;
+    settings.Styles.Header.Font.Bold = true;
+
+    settings.SettingsPager.Position = PagerPosition.Bottom;
+    settings.SettingsPager.FirstPageButton.Visible = true;
+    settings.SettingsPager.LastPageButton.Visible = true;
+    settings.SettingsPager.PageSizeItemSettings.Visible = true;
+    settings.SettingsPager.PageSizeItemSettings.Items = new string[] { "10", "20", "40", "60" };
+
+    settings.SettingsDetail.AllowOnlyOneMasterRowExpanded = true;
+    settings.SettingsDetail.ShowDetailRow = true;
+    settings.SettingsPager.EnableAdaptivity = true;
+
+    settings.CustomColumnDisplayText = (s, e) =>
+    {
+        if (e.Column.FieldName == "Phone")
+        {
+            string original = e.Value.ToString().Trim();
+            e.DisplayText = string.Format("({0}) {1}-{2}", original.Substring(0, 3), original.Substring(3, 3), original.Substring(6, 4));
+
+        }
+    };
+
+    settings.SetDetailRowTemplateContent(c =>
+    {
+        Html.RenderAction("DetailPartial", new PoolrApp.Models.ViewModels.TicketDetailViewModel
+        {
+            TicketId = Convert.ToInt64(DataBinder.Eval(c.DataItem, "TicketId")),
+            TerminalId = Convert.ToString(DataBinder.Eval(c.DataItem, "TerminalId")),
+            TicketStatusId = (PoolrApp.Models.TicketStatus)(DataBinder.Eval(c.DataItem, "TicketStatusId")),
+            PoolId = Convert.ToInt32(DataBinder.Eval(c.DataItem, "PoolId")),
+            PhotoName = Convert.ToString(DataBinder.Eval(c.DataItem, "PhotoName"))
+        });
+    });
+
+}).Bind(Model.TicketList).GetHtml()

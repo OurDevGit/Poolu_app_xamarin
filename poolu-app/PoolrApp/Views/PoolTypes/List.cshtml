@@ -1,0 +1,9 @@
+﻿@model IEnumerable<PoolrApp.Models.PoolType>
+
+<div style="margin-top:20px;margin-left:30px">
+    @using (Html.BeginForm())
+    {
+        @Html.Partial("PoolTypesGridViewPartial", Model)
+    }
+
+</div>

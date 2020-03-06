@@ -1,0 +1,51 @@
+﻿
+@{
+
+    Html.EnableClientValidation();
+    Html.EnableUnobtrusiveJavaScript();
+
+    var grid = Html.DevExpress().GridView(settings =>
+    {
+        settings.Name = "gridLotteryDrawDates";
+        settings.CallbackRouteValues = new { Controller = "DrawDates", Action = "LotteryDrawDatePartial" };
+        settings.Width = Unit.Percentage(100);
+
+
+
+        settings.KeyFieldName = "Id";
+        settings.Columns.Add(column =>
+        {
+            column.Caption = "Draw Date";
+            column.FieldName = "DisplayDrawDate";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.Caption = " ";
+            column.FieldName = "DrawDate";
+            column.PropertiesEdit.DisplayFormatString = "d";
+        });
+
+
+        settings.Styles.Cell.HorizontalAlign = HorizontalAlign.Center;
+        settings.Styles.Header.HorizontalAlign = HorizontalAlign.Center;
+        settings.Styles.Header.Font.Bold = true;
+
+        //settings.SettingsPager.Position = PagerPosition.Bottom;
+        //settings.SettingsPager.FirstPageButton.Visible = true;
+        //settings.SettingsPager.LastPageButton.Visible = true;
+        //settings.SettingsPager.PageSizeItemSettings.Visible = true;
+        //settings.SettingsPager.PageSizeItemSettings.Items = new string[] { "40", "60" };
+        settings.SettingsPager.Mode = GridViewPagerMode.EndlessPaging;
+        settings.SettingsPager.PageSize = 30;
+
+        settings.Settings.VerticalScrollBarMode = ScrollBarMode.Visible;
+        settings.Settings.VerticalScrollableHeight = 400;
+
+        settings.ClientSideEvents.BeginCallback = @"function (s, e) {e.customArgs['ticketTypeId'] = cboTicketType.GetValue() }";
+
+    });
+
+}
+
+@grid.Bind(Model).GetHtml()

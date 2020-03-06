@@ -1,0 +1,15 @@
+﻿
+@Html.DevExpress().ComboBox(settings =>
+{
+    settings.Name = "cboPoolStatus";
+    settings.Width = 220;
+    settings.SelectedIndex = 0;
+    settings.CallbackRouteValues = new { Controller = "Pools", Action = "PoolStatusPartial" };
+    settings.Properties.TextField = "Status";
+    settings.Properties.ValueField = "StatusId";
+    settings.Properties.ValueType = typeof(int);
+    settings.Properties.ClearButton.DisplayMode = ClearButtonDisplayMode.Never;
+    settings.ControlStyle.Font.Bold = true;
+    settings.Properties.ClientSideEvents.SelectedIndexChanged = "cboPoolStatusIndexChanged";
+
+}).BindList(Model).GetHtml()

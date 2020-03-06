@@ -1,0 +1,54 @@
+﻿@model PoolrApp.Models.ViewModels.TicketsViewModel
+
+@Html.DevExpress().GridView( settings =>
+{
+    settings.Name = "gridPendingTickets";
+    settings.CallbackRouteValues = new { Controller = "Tickets", Action = "PendingTickets" };
+    settings.Width = Unit.Percentage(100);
+    settings.SettingsPager.PageSize = 15;
+    settings.Columns.Add(column =>
+    {
+        //column.Caption = "#";
+        column.SetDataItemTemplateContent(c =>
+        {
+            ViewContext.Writer.Write(
+                Html.ActionLink("Approve", "ApproveTicket", new { TicketId = DataBinder.Eval(c.DataItem, "TicketId") })
+            );
+        });
+
+        column.Settings.AllowDragDrop = DefaultBoolean.False;
+        column.Settings.AllowSort = DefaultBoolean.False;
+        column.Width = 100;
+    });
+
+    //settings.KeyFieldName = "Id";
+    //settings.Columns.Add("TicketId");
+
+    settings.Columns.Add( column =>
+    {
+        column.Caption = "User Name";
+        column.FieldName = "FullName";
+    });
+
+    settings.Columns.Add( column =>
+    {
+        column.Caption = "Ticket Type";
+        column.FieldName = "TicketTypeName";
+    });
+
+    settings.Columns.Add("UploadTime");
+
+
+    settings.Styles.Cell.HorizontalAlign = HorizontalAlign.Center;
+    settings.Styles.Header.HorizontalAlign = HorizontalAlign.Center;
+    settings.Styles.Header.Font.Bold = true;
+
+    settings.SettingsPager.Position = PagerPosition.Bottom;
+    settings.SettingsPager.FirstPageButton.Visible = true;
+    settings.SettingsPager.LastPageButton.Visible = true;
+    settings.SettingsPager.PageSizeItemSettings.Visible = true;
+    settings.SettingsPager.PageSizeItemSettings.Items = new string[] { "10", "20", "50" };
+
+
+}).GetHtml()
+

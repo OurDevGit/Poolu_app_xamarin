@@ -1,0 +1,107 @@
+
+@{
+    Html.EnableClientValidation();
+    Html.EnableUnobtrusiveJavaScript();
+
+    var grid = Html.DevExpress().GridView(settings => {
+        settings.Name = "gvPoolTypes";
+        settings.KeyFieldName = "PoolTypeId";
+        settings.CallbackRouteValues = new { Controller = "PoolTypes", Action = "PoolTypesGridViewPartial" };
+        settings.Width = 550;
+        settings.Styles.AlternatingRow.Enabled = DefaultBoolean.True;
+
+        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "PoolTypes", Action = "PoolTypesAddNew" };
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "PoolTypes", Action = "PoolTypesUpdate" };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "PoolTypes", Action = "PoolTypesDelete" };
+        settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+        settings.SettingsBehavior.ConfirmDelete = true;
+        settings.SettingsEditing.NewItemRowPosition = GridViewNewItemRowPosition.Bottom;
+
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.ShowNewButton = true;
+        settings.CommandColumn.ShowDeleteButton = true;
+        settings.CommandColumn.ShowEditButton = true;
+
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "PoolName";
+            column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+            column.HeaderStyle.Font.Bold = true;
+            column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "TicketTypeId";
+            column.Caption = "Lottery Type";
+
+            column.EditorProperties().ComboBox(p =>
+            {
+
+                p.TextField = "TicketTypeName";
+                p.ValueField = "TicketTypeId";
+                p.ValueType = typeof(int);
+                p.DataSource = ViewData["TicketTypes"];
+
+            });
+            column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+            column.HeaderStyle.Font.Bold = true;
+            column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "GroupSize";
+            //column.Caption = "Screen Position";
+            column.ColumnType = MVCxGridViewColumnType.SpinEdit;
+            column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+            column.HeaderStyle.Font.Bold = true;
+            column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "ScreenPosition";
+            //column.Caption = "Screen Position";
+            column.ColumnType = MVCxGridViewColumnType.SpinEdit;
+            column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+            column.HeaderStyle.Font.Bold = true;
+            column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "IsActive";
+            column.Caption = "Active";
+            column.ColumnType = MVCxGridViewColumnType.CheckBox;
+            column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+            column.HeaderStyle.Font.Bold = true;
+            column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+        });
+
+        settings.EditFormLayoutProperties.ColCount = 1;
+        settings.EditFormLayoutProperties.Items.Add("PoolName");
+        settings.EditFormLayoutProperties.Items.Add("Lottery Type");
+        settings.EditFormLayoutProperties.Items.Add("GroupSize");
+        settings.EditFormLayoutProperties.Items.Add("ScreenPosition");
+        settings.EditFormLayoutProperties.Items.Add("Active");
+        settings.EditFormLayoutProperties.Items.AddCommandItem(itemSettings =>
+        {
+            itemSettings.ColSpan = 1;
+            itemSettings.HorizontalAlign = FormLayoutHorizontalAlign.Center;
+        });
+        settings.EditFormLayoutProperties.SettingsAdaptivity.AdaptivityMode = FormLayoutAdaptivityMode.SingleColumnWindowLimit;
+        settings.EditFormLayoutProperties.SettingsAdaptivity.SwitchToSingleColumnAtWindowInnerWidth = 700;
+
+        settings.Styles.Header.Wrap = DefaultBoolean.True;
+        settings.SettingsPager.EnableAdaptivity = true;
+
+        settings.CellEditorInitialize = (s, e) =>
+        {
+            e.Editor.ReadOnly = false;
+        };
+
+    });
+    if (ViewData["EditError"] != null){
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+@grid.Bind(Model).GetHtml()

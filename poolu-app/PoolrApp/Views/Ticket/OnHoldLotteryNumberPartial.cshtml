@@ -1,0 +1,55 @@
+﻿
+@{
+
+    Html.EnableClientValidation();
+    Html.EnableUnobtrusiveJavaScript();
+
+    var grid = Html.DevExpress().GridView(settings =>
+    {
+        settings.Name = "gridOnHoldLotteryNumbers";
+        settings.KeyFieldName = "LotteryNumberId";
+        settings.CallbackRouteValues = new { Controller = "Ticket", Action = "OnHoldLotteryNumberPartial", TicketId = ViewData["TicketId"] };
+        settings.Width = Unit.Percentage(100); 
+settings.SettingsPager.AlwaysShowPager = false;
+        settings.Styles.AlternatingRow.Enabled = DefaultBoolean.True;
+
+
+        settings.CustomColumnDisplayText = (sender, e) =>
+        {
+            if (e.Column.FieldName == "MatchNumbers")
+            {
+                e.DisplayText = System.Text.RegularExpressions.Regex.Replace(e.Value.ToString(), @"(.{2})", "$0 ");
+
+            }
+        };
+
+        settings.Columns.Add(column =>
+        {
+            column.Caption = "White Balls";
+            column.FieldName = "MatchNumbers";
+            column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+            column.CellStyle.Font.Bold = true;
+            column.CellStyle.Font.Size = 9;
+            column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+            column.Width = Unit.Percentage(80);
+
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.Caption = "Color Ball";
+            column.FieldName = "FinalNumbers";
+            column.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+            column.CellStyle.Font.Bold = true;
+            column.CellStyle.Font.Size = 9;
+            column.CellStyle.HorizontalAlign = HorizontalAlign.Center;
+
+        });
+
+
+    });
+
+
+}
+
+@grid.Bind(Model).GetHtml()

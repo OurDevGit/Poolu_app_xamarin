@@ -1,0 +1,6 @@
+﻿@model IEnumerable<PoolrApp.Models.PoolrUser>
+
+@using (Html.BeginForm())
+{
+    @Html.Partial("UserGridViewPartial", Model)
+}

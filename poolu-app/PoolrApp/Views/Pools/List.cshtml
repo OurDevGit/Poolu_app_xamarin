@@ -1,0 +1,39 @@
+﻿@model IEnumerable<PoolrApp.Models.Pool>
+
+<script type="text/javascript">
+    function cboPoolStatusIndexChanged(s, e) {
+        gvPools.PerformCallback({ PoolStatus: s.GetValue() });
+    }
+
+    function validateWinningNumbers(s, e) {
+
+    }
+
+    function isNumberKey(s, e) {
+        if (s.GetValue() == ' ') {
+            s.SetCaretPosition(0);
+        }
+        var keycode = e.htmlEvent.keyCode;
+
+        if (keycode < 48 || keycode > 57) {
+            e.htmlEvent.preventDefault();
+        }
+
+        return;
+    }
+</script>
+
+<div class="row" style="margin-top:20px;margin-left:30px">
+    <div>
+        @Html.Partial("PoolStatusPartial", ViewData["PoolStatus"])
+    </div>
+</div>
+
+<div class="row" style="margin-top:10px;margin-left:30px">
+    <div>
+        @using (Html.BeginForm())
+        {
+            @Html.Partial("PoolsGridViewPartial", Model)
+        }
+    </div>
+</div>

@@ -1,0 +1,31 @@
+﻿@model IEnumerable<PoolrApp.Models.AdminUser>
+
+<script type="text/javascript">
+    function validateEmail(s, e) {
+        var reg = /^([a-zA-Z0-9_\.\-])+\@@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+        if (!reg.test(e.value)) {
+            e.isValid = false;
+            e.errorText = "Invalid email address.";
+        }
+    }
+
+    function validatePassword(s, e) {
+        var reg = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@@$!%*?&])[A-Za-z\d$@@$!%*?&]{8,}/;
+
+        if (!reg.test(e.value)) {
+            e.isValid = false;
+            e.errorText = "Password must contain: Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character";
+        }
+    }
+
+</script>
+
+<div style="margin-top:20px;margin-left:30px">
+    @using (Html.BeginForm())
+    {
+        @Html.Partial("AdminGridViewPartial", Model)
+    }
+
+</div>
+

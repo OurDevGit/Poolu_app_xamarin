@@ -1,0 +1,185 @@
+﻿@using PoolrApp.Infrastructure
+@using PoolrApp.Models
+@model PoolrApp.Models.ViewModels.TicketDetailViewModel
+
+<div class="row" style="margin-top:5px">
+    <div class="col-sm-4"  style="overflow:auto; width:550px;height:500px;">
+        @Html.DevExpress().BinaryImage(biSettings =>
+       {
+           biSettings.Name = "TicketPhoto";
+           biSettings.Width =550;
+           biSettings.Height = 600;
+           biSettings.Properties.ImageSizeMode = ImageSizeMode.ActualSizeOrFit;
+           biSettings.Properties.EnableServerResize = true;
+       }).Bind(Model.PhotoData).GetHtml()
+    </div>
+    <div class="col-sm-3 pull-left">
+        <div>
+            @Html.DevExpress().ComboBox(
+                    settings =>
+                    {
+                        settings.Name = "cboPools";
+                        settings.Properties.Caption = "Draw Date";
+                        settings.Properties.CaptionStyle.Font.Bold = true;
+                        settings.Properties.CaptionSettings.Position = EditorCaptionPosition.Left;
+                        settings.Properties.CaptionSettings.VerticalAlign = EditorCaptionVerticalAlign.Middle;
+                        settings.Properties.CaptionSettings.HorizontalAlign = EditorCaptionHorizontalAlign.Right;
+                        settings.Properties.CaptionCellStyle.Width = Unit.Pixel(80);
+                        settings.Width = Unit.Percentage(100);
+                        settings.Height = Unit.Percentage(100);
+                        settings.Properties.TextField = "PoolName";
+                        settings.Properties.ValueField = "PoolId";
+                        settings.Properties.ValueType = typeof(int);
+                        settings.Properties.DropDownStyle = DropDownStyle.DropDownList;
+                        settings.Properties.ClearButton.DisplayMode = ClearButtonDisplayMode.Never;
+                        settings.ControlStyle.Font.Bold = true;
+
+                        if (Model.TicketStatusId == TicketStatus.Declined)
+                        {
+                            settings.Enabled = false;
+                        }
+
+                    }
+                ).BindList(DataAccess.GetPoolsForComboBox(PoolStatus.OpenAndClosed)).Bind(Model.PoolId).GetHtml()
+        </div>
+        <div style="margin-top:5px">
+            @Html.DevExpress().TextBox(
+                settings => {
+                    settings.Name = "termId";
+                    settings.Properties.Caption = "Terminal";
+                    settings.Properties.CaptionStyle.Font.Bold = true;
+                    settings.Properties.CaptionSettings.Position = EditorCaptionPosition.Left;
+                    settings.Properties.CaptionSettings.HorizontalAlign = EditorCaptionHorizontalAlign.Right;
+                    settings.Properties.CaptionCellStyle.Width = Unit.Pixel(80);
+                    settings.Text = Model.TerminalId;
+                    settings.Width = Unit.Percentage(100);
+                    settings.Height = Unit.Percentage(100);
+                    settings.Properties.NullText = "Enter Terminal Number...";
+                }
+            ).GetHtml()
+        </div>
+        <div style="margin-top:5px">
+            @if (Model.TicketStatusId == TicketStatus.Declined)
+            {
+                @Html.Partial("OnHoldLotteryNumberPartial", Model.LotteryNumbers);
+            }
+            else
+            {
+                using (Html.BeginForm())
+                {
+                    @Html.Partial("LotteryNumberPartial", Model.LotteryNumbers);
+                }
+            }
+
+        </div>
+        <div class="row pull-right" style="margin-top:10px">
+            @Html.DevExpress().FormLayout(settings =>
+       {
+           settings.Name = "formLayout";
+           settings.UseDefaultPaddings = true;
+           settings.ColCount = 2;
+
+           if (Model.TicketStatusId == TicketStatus.Approved)
+           {
+               settings.Items.Add(i =>
+               {
+                   i.ShowCaption = DefaultBoolean.False;
+                   i.CssClass = "buttonAlign";
+                   i.Width = Unit.Percentage(100);
+                   i.NestedExtension().Button(s =>
+                   {
+                       s.Name = "btnUpdateInfo";
+                       s.Text = "Update";
+                       s.UseSubmitBehavior = false;
+                       s.Width = Unit.Pixel(100);
+
+                   });
+
+                   var btnSettings = (ButtonSettings)i.NestedExtensionSettings;
+                   btnSettings.ClientSideEvents.Click =
+                   "function(s, e) { UpdateTicket(s, e, " + Model.TicketId + "); }";
+               });
+
+
+               settings.Items.Add(i =>
+               {
+                   i.ShowCaption = DefaultBoolean.False;
+                   i.CssClass = "buttonAlign";
+                   i.Width = Unit.Percentage(100);
+                   i.NestedExtension().Button(s =>
+                   {
+                       s.Name = "btnDecline";
+                       s.Text = "Decline";
+                       s.UseSubmitBehavior = true;
+                       s.Width = Unit.Pixel(100);
+                   });
+
+                   var btnSettings = (ButtonSettings)i.NestedExtensionSettings;
+                   btnSettings.ClientSideEvents.Click = "function(s, e) { declineApprovedTicket(s, e, " + Model.TicketId + "); }";
+               });
+           }
+           else if (Model.TicketStatusId == TicketStatus.Declined)
+           {
+               settings.Items.Add(i =>
+               {
+                   i.ShowCaption = DefaultBoolean.False;
+                   i.CssClass = "buttonAlign";
+                   i.Width = Unit.Percentage(100);
+                   i.NestedExtension().Button(s =>
+                   {
+                       s.Name = "applyButton";
+                       s.Text = "Delete";
+                       s.UseSubmitBehavior = false;
+                       s.Width = Unit.Pixel(100);
+
+                   });
+
+                   var btnSettings = (ButtonSettings)i.NestedExtensionSettings;
+                   btnSettings.ClientSideEvents.Click = "function(s, e) { deleteDeclinedTicket(s, e, " + Model.TicketId + "); }";
+               });
+
+           }
+           else // pending ticket
+           {
+               settings.Items.Add(i =>
+               {
+                   i.ShowCaption = DefaultBoolean.False;
+                   i.CssClass = "buttonAlign";
+                   i.Width = Unit.Percentage(100);
+                   i.NestedExtension().Button(s =>
+                   {
+                       s.Name = "applyButton";
+                       s.Text = "Approve";
+                       s.UseSubmitBehavior = false;
+                       s.Width = Unit.Pixel(100);
+
+                   });
+
+                   var btnSettings = (ButtonSettings)i.NestedExtensionSettings;
+                   btnSettings.ClientSideEvents.Click = "function(s, e) { approveTicket(s, e, " + Model.TicketId + "); }";
+               });
+
+               settings.Items.Add(i =>
+               {
+                   i.ShowCaption = DefaultBoolean.False;
+                   i.CssClass = "buttonAlign";
+                   i.Width = Unit.Percentage(100);
+                   i.NestedExtension().Button(s =>
+                   {
+                       s.Name = "applyButton2";
+                       s.Text = "Decline";
+                       s.UseSubmitBehavior = true;
+                       s.Width = Unit.Pixel(100);
+                   });
+
+                   var btnSettings = (ButtonSettings)i.NestedExtensionSettings;
+                   btnSettings.ClientSideEvents.Click = "function(s, e) { declinePendingTicket(s, e, " + Model.TicketId + "); }";
+               });
+           }
+
+       }).GetHtml()
+        </div>
+
+
+    </div>
+</div>

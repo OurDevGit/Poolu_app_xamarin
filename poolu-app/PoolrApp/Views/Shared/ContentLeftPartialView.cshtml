@@ -1,3 +1,9 @@
+<script type="text/javascript">
+    function OnInit(s, e) {
+        
+    }
+</script>
+
 <div class="leftPanel">
         @* DXCOMMENT: Configure the left panel's menu *@
     @Html.DevExpress().NavBar(settings => {
@@ -8,6 +14,11 @@
     settings.Width = System.Web.UI.WebControls.Unit.Percentage(100);
     settings.ControlStyle.Border.BorderWidth = System.Web.UI.WebControls.Unit.Pixel(0);
     settings.ControlStyle.Paddings.Padding = System.Web.UI.WebControls.Unit.Pixel(0);
-    settings.Styles.Item.Font.Size = new FontUnit(Unit.Pixel(14));
+    settings.Styles.Item.Font.Size = new FontUnit(Unit.Pixel(13));
+    settings.Styles.GroupHeader.Font.Bold = true;
+    settings.Styles.GroupHeader.Font.Size = new FontUnit(Unit.Pixel(13));
+    settings.Styles.GroupHeader.HorizontalAlign = HorizontalAlign.Center;
+   
+    
 }).BindToXML(HttpContext.Current.Server.MapPath("~/App_Data/SideMenu.xml"), "/menu/*").GetHtml()
 </div>

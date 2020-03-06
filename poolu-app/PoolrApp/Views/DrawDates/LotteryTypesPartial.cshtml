@@ -1,0 +1,23 @@
+﻿@Html.DevExpress().ComboBox(
+                settings =>
+                {
+                    settings.Name = "cboTicketType";
+                    settings.Width = 220;
+                    settings.Height = 30;
+                    settings.SelectedIndex = 0;
+                    settings.CallbackRouteValues = new { Controller = "DrawDates", Action = "LotteryTypesPartial" };
+                    //settings.Properties.NullText = "Select a Lottery Type...";
+                    settings.Properties.TextField = "TicketTypeName";
+                    settings.Properties.ValueField = "TicketTypeId";
+                    settings.Properties.ValueType = typeof(int);
+
+                    settings.Properties.ClearButton.DisplayMode = ClearButtonDisplayMode.Never;
+                    //settings.ControlStyle.Font.Bold = true;
+                    settings.ControlStyle.Font.Size = 11;
+
+                    settings.Properties.ClientSideEvents.SelectedIndexChanged = "cboTicketTypeIndexChanged";
+
+                }
+).BindList(Model).GetHtml()
+
+
