@@ -1,3 +1,0 @@
-# Poolr-Jobs
-# JapanProject
-
