@@ -17,6 +17,7 @@ namespace PoolUpdates
     public class JackpotModel
     {
         public int Error { get; set; }
+        public string JackpotName { get; set; }
         public string Next_draw { get; set; }
         public string Currency { get; set; }
         public double Jackpot { get; set; }

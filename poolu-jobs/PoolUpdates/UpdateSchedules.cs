@@ -29,6 +29,16 @@ namespace PoolUpdates
         }
     }
 
+    public class DrawingResultsUpdateSchedule : PoolWeeklySchedule
+    {
+        private static readonly DayOfWeek[] weekDays = { DayOfWeek.Wednesday, DayOfWeek.Thursday, DayOfWeek.Saturday,
+          DayOfWeek.Sunday };
+        private static readonly string[] times = ConfigurationManager.AppSettings["DrawingResultsUpdateTime"].Split('|');
+        public DrawingResultsUpdateSchedule() : base(weekDays, times)
+        {
+        }
+    } 
+    
     public class PowerballResultsSchedule : PoolWeeklySchedule
     {
         private static readonly DayOfWeek[] weekDays = { DayOfWeek.Thursday, DayOfWeek.Sunday };
@@ -44,6 +54,15 @@ namespace PoolUpdates
         private static readonly string[] times = ConfigurationManager.AppSettings["ResultsUpdateTime"].Split('|');
         public MegaMillionsResultsSchedule() : base(weekDays, times)
         {       
+        }
+    }
+
+    public class LotteryReminderSchedule : PoolWeeklySchedule
+    {
+        private static readonly DayOfWeek[] weekDays = { DayOfWeek.Tuesday, DayOfWeek.Friday };
+        private static readonly string[] times = ConfigurationManager.AppSettings["LotteryReminderUpdateTime"].Split('|');
+        public LotteryReminderSchedule() : base(weekDays, times)
+        {
         }
     }
 
