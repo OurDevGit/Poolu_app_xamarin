@@ -206,6 +206,7 @@ namespace PoolrApp.Controllers
                 });
                 
                 await SendApproveConfirmEmailAsync(ticketId);
+                await SendNotificationApprovedAsync(ticketId);
                 
                 return Json(new { success = true, message = "Ticket approved successfully and confirmation email send." }, JsonRequestBehavior.AllowGet);      
             }
@@ -246,6 +247,7 @@ namespace PoolrApp.Controllers
                 repo.DeclinePendingTicket(ticketId, AdminId, EasternStandardTimeNow);
 
                 await SendDeclineConfirmEmailAsync(ticketId);
+                await SendNotificationDeclinedAsync(ticketId);
 
                 return Json(new { success = true, message = "Ticket declined successfully and confirmation email send." }, JsonRequestBehavior.AllowGet);
             }
@@ -262,6 +264,7 @@ namespace PoolrApp.Controllers
                 repo.DeclineApprovedTicket(ticketId, poolId, TicketStatus.Declined, AdminId, EasternStandardTimeNow);
 
                 await SendDeclineConfirmEmailAsync(ticketId);
+                await SendNotificationDeclinedAsync(ticketId);
 
                 return Json(new { success = true, message = "Ticket declined successfully and confirmation email send." }, JsonRequestBehavior.AllowGet);
             }
@@ -401,6 +404,8 @@ namespace PoolrApp.Controllers
             var response = await client.SendEmailAsync(msg);
         }
 
+
+
         private string AddSpaceToLotteryNumbers(string numbers)
         {
             var whiteBalls = numbers.Substring(0, numbers.Length - 2);
@@ -461,6 +466,36 @@ namespace PoolrApp.Controllers
             var response = await client.SendEmailAsync(msg);
         }
 
+        private async Task SendNotificationApprovedAsync(long ticketId)
+        {
+            var confirmInfo = DataAccess.GetApproveConfirmInfo(ticketId);
+
+            var client = new SendGridClient(ConfigurationManager.AppSettings["SendGridApiKey"]);
+
+            OneSignalNotification myNotification = new OneSignalNotification();
+            myNotification.contents = "Your Lottery Ticket: "+ confirmInfo.LotteryNumbers + " have been successfully approved!";
+            myNotification.small_icon = "icon.png";
+            myNotification.include_player_ids = new List<string> { "OneSignal_playerid_fordevice", "Another_onesignal_playerid" };
+            await myNotification.Send();
+
+
+        }
+
+        private async Task SendNotificationDeclinedAsync(long ticketId)
+        {
+            var confirmInfo = DataAccess.GetApproveConfirmInfo(ticketId);
+
+            var client = new SendGridClient(ConfigurationManager.AppSettings["OneSignalApiKey"]);
+
+            OneSignalNotification myNotification = new OneSignalNotification();
+            myNotification.contents = "Your Lottery Ticket: " + confirmInfo.LotteryNumbers + " have been declined !";
+            myNotification.small_icon = "icon.png";
+            myNotification.include_player_ids = new List<string> { "OneSignal_playerid_fordevice", "Another_onesignal_playerid" };
+            await myNotification.Send();
+
+
+
+        }
 
     }
 }

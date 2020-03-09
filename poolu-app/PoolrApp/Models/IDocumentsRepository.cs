@@ -11,5 +11,6 @@ namespace PoolrApp.Models
         Document GetDocument(int docId);
 
         void SaveDocument(Document doc);
+        void AddDocument(Document doc);
     }
 }

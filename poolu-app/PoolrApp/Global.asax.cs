@@ -17,6 +17,7 @@ namespace PoolrApp
     {
         protected void Application_Start()
         {
+            DevExtremeBundleConfig.RegisterBundles(BundleTable.Bundles);
             AreaRegistration.RegisterAllAreas();
 
             GlobalConfiguration.Configure(WebApiConfig.Register);

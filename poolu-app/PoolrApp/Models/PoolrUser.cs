@@ -58,5 +58,12 @@ namespace PoolrApp.Models
         [NotMapped]
         public string JoinDate { get; set; }
 
+        public bool IsOneSignalUser { get; set; }
+
+        public string OneSignalAppId { get; set; }
+        public string OneSignalId { get; set; }
+        public string OneSignalSegmentId { get; set; }
+        public string OneSignalDeviceId { get; set; }
+
     }
 }

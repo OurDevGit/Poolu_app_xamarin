@@ -28,6 +28,20 @@ namespace PoolrApp.Controllers
 
             return View("List", repo.GetDocument(doc.DocId));
         }
-        
+
+        [HttpPost]
+        public ActionResult Add()
+        {
+            return View("Add", new Document());
+        }
+
+        [HttpPost]
+        public ActionResult Add(Document doc)
+        {
+            repo.AddDocument(doc);
+
+            return View("List", repo.GetDocument(doc.DocId));
+        }
+
     }
 }

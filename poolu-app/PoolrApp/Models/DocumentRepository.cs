@@ -24,5 +24,16 @@ namespace PoolrApp.Models
 
         }
 
+        public void AddDocument(Document doc)
+        {
+            var dbEntry = context.Documents.Find(doc.DocId);
+            if (dbEntry == null)
+            {
+                context.Documents.Add(doc);
+                context.SaveChanges();
+            }
+
+        }
+
     }
 }

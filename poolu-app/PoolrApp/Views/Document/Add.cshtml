@@ -1,0 +1,53 @@
+﻿@using PoolrApp.Models;
+@model PoolrApp.Models.Document
+
+<script type="text/javascript">
+    function onSuccess() {
+        toastr.options = {
+            "positionClass": "toast-bottom-right"
+        };
+
+        toastr.success("Document saved successfully.");
+    }
+
+    function onFailure() {
+        bootbox.alert("Error occurred when save document.");
+    }
+</script>
+
+<style type="text/css">
+    .textarea {
+        font-size: small !important
+    }
+</style>
+
+@using (Ajax.BeginForm("Add", "Document", new AjaxOptions { HttpMethod = "POST", OnSuccess = "onSuccess", OnFailure = "onFailure" }))
+{
+
+    <div class="form-group" style="padding-top:10px;padding-left:10px;padding-right:10px">
+        @Html.TextAreaFor(model => model.DocContent, new { @class = "form-control textarea", @rows = 35})
+        @Html.HiddenFor(model => model.DocId)
+
+    </div>
+    <div class="form-group" style="padding-right:10px;float:right">
+        @{
+            var btnTitle = "Save new Document";
+
+            
+        }
+
+        @Html.DevExpress().Button(
+        settings =>
+        {
+            settings.Name = "btnSave";
+            settings.Height = 30;
+            settings.Text = @btnTitle;
+            settings.Styles.Style.Font.Bold = true;
+            settings.Styles.Style.Font.Size = 9;
+            settings.UseSubmitBehavior = true;
+            //settings.ClientSideEvents.Click = "function(s, e) { e.processOnServer = confirm('Save this document?'); if (!e.processOnServer) return; }";
+        }).GetHtml()
+
+    </div>
+}
+
