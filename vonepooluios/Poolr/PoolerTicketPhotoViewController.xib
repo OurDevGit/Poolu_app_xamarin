@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PoolerTicketPhotoViewController" customModule="Poolr" customModuleProvider="target">
+            <connections>
+                <outlet property="PoolerTicketUploadDateTimeLabel" destination="yBB-QG-GOp" id="6xy-BQ-Qa6"/>
+                <outlet property="headerView" destination="b6r-MI-vUk" id="Wln-M5-77v"/>
+                <outlet property="poolerNameLabel" destination="WW2-Oa-Qsf" id="mzE-ho-Gfk"/>
+                <outlet property="poolerTicketPhotoImage" destination="XC4-3U-Iy4" id="Bzj-Eh-Pq1"/>
+                <outlet property="removeTicketButton" destination="6P5-Eo-5wj" id="n3B-Qi-9Ku"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewTicketNumberButton" destination="Let-D2-NF5" id="nFT-j5-T16"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b6r-MI-vUk">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="73" id="YbP-kW-550"/>
+                    </constraints>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XC4-3U-Iy4">
+                    <rect key="frame" x="0.0" y="73" width="375" height="374"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="374" id="f38-u5-LnI"/>
+                    </constraints>
+                </imageView>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6P5-Eo-5wj">
+                    <rect key="frame" x="245" y="465" width="94" height="20"/>
+                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
+                    <state key="normal" title="Remove Ticket">
+                        <color key="titleColor" red="0.4941176471" green="0.82745098039999998" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="removeTicket:" destination="-1" eventType="touchUpInside" id="VNG-pz-4ev"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WW2-Oa-Qsf">
+                    <rect key="frame" x="33" y="465" width="150" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="0EV-Ds-ggb"/>
+                        <constraint firstAttribute="height" constant="20" id="ntO-TQ-ZCj"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="16"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yBB-QG-GOp">
+                    <rect key="frame" x="192" y="498" width="152" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="152" id="AXN-Dd-Uok"/>
+                        <constraint firstAttribute="height" constant="40" id="a8g-x0-9lX"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
+                    <color key="textColor" red="0.42745098040000001" green="0.43137254899999999" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Let-D2-NF5">
+                    <rect key="frame" x="33" y="495" width="136" height="32"/>
+                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
+                    <state key="normal" title="View Ticket Numbers"/>
+                    <connections>
+                        <action selector="viewTicketNumbers:" destination="-1" eventType="touchUpInside" id="Y5X-rg-MNh"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="6P5-Eo-5wj" firstAttribute="top" secondItem="XC4-3U-Iy4" secondAttribute="bottom" constant="18" id="2lf-a0-rar"/>
+                <constraint firstItem="Let-D2-NF5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="33" id="Dpa-lj-bSu"/>
+                <constraint firstItem="b6r-MI-vUk" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="EcG-dD-5iH"/>
+                <constraint firstItem="WW2-Oa-Qsf" firstAttribute="centerY" secondItem="6P5-Eo-5wj" secondAttribute="centerY" id="IUJ-kH-36W"/>
+                <constraint firstItem="yBB-QG-GOp" firstAttribute="top" secondItem="WW2-Oa-Qsf" secondAttribute="bottom" constant="13" id="PMz-pA-lQ0"/>
+                <constraint firstItem="WW2-Oa-Qsf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="33" id="QHw-Ca-LiP"/>
+                <constraint firstItem="b6r-MI-vUk" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Rqd-E2-o1x"/>
+                <constraint firstItem="yBB-QG-GOp" firstAttribute="top" secondItem="6P5-Eo-5wj" secondAttribute="bottom" constant="13" id="Snr-rm-wLW"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="6P5-Eo-5wj" secondAttribute="trailing" constant="36" id="TSi-mN-llc"/>
+                <constraint firstAttribute="trailing" secondItem="b6r-MI-vUk" secondAttribute="trailing" id="XcY-FF-ddH"/>
+                <constraint firstItem="WW2-Oa-Qsf" firstAttribute="top" secondItem="XC4-3U-Iy4" secondAttribute="bottom" constant="18" id="Y0e-EZ-5dc"/>
+                <constraint firstItem="XC4-3U-Iy4" firstAttribute="top" secondItem="b6r-MI-vUk" secondAttribute="bottom" id="ZOa-K1-iaj"/>
+                <constraint firstItem="XC4-3U-Iy4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="pw0-WS-t3T"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XC4-3U-Iy4" secondAttribute="trailing" id="qaO-nf-SJ8"/>
+                <constraint firstItem="Let-D2-NF5" firstAttribute="top" secondItem="WW2-Oa-Qsf" secondAttribute="bottom" constant="10" id="t56-KD-HSL"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="yBB-QG-GOp" secondAttribute="trailing" constant="31" id="xfZ-3f-4pJ"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
+        </view>
+    </objects>
+</document>

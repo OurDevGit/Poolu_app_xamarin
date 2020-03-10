@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Avenir.ttc">
+            <string>Avenir-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PoolerPhotoViewController" customModule="Poolr" customModuleProvider="target">
+            <connections>
+                <outlet property="PoolerStateLabel" destination="Xif-cP-fUK" id="oO7-Ov-yTu"/>
+                <outlet property="headerView" destination="1gU-tq-qoV" id="ep3-c6-fMo"/>
+                <outlet property="poolerNameLabel" destination="20Y-aL-Awp" id="hGI-W4-Rul"/>
+                <outlet property="poolerPhotoImage" destination="Mgu-IK-vzM" id="un3-hJ-5en"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1gU-tq-qoV">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="73"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="73" id="JUa-FX-Sey"/>
+                    </constraints>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mgu-IK-vzM">
+                    <rect key="frame" x="0.0" y="73" width="414" height="374"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="374" id="Gd1-H0-A4n"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pooler" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eeZ-UA-Arh">
+                    <rect key="frame" x="33" y="458" width="38" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="UFZ-SK-SK9"/>
+                        <constraint firstAttribute="width" constant="38" id="jz9-wB-inG"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cik-rG-zEf">
+                    <rect key="frame" x="299" y="458" width="79" height="20"/>
+                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
+                    <state key="normal" title="View Tickets">
+                        <color key="titleColor" red="0.4941176471" green="0.82745098039999998" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="viewPoolerTickets:" destination="-1" eventType="touchUpInside" id="bmh-3g-yf8"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="20Y-aL-Awp">
+                    <rect key="frame" x="33" y="481" width="0.0" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="e2c-ro-the"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="16"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xif-cP-fUK">
+                    <rect key="frame" x="33" y="506" width="0.0" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="dz0-jf-vok"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
+                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Cik-rG-zEf" secondAttribute="trailing" constant="36" id="1uL-X0-zeq"/>
+                <constraint firstItem="1gU-tq-qoV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="DGK-z3-6FN"/>
+                <constraint firstItem="eeZ-UA-Arh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="33" id="Fia-Im-Ph3"/>
+                <constraint firstItem="20Y-aL-Awp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="33" id="HMX-fB-XXD"/>
+                <constraint firstItem="Cik-rG-zEf" firstAttribute="top" secondItem="Mgu-IK-vzM" secondAttribute="bottom" constant="11" id="KGd-Lj-zaw"/>
+                <constraint firstItem="Xif-cP-fUK" firstAttribute="top" secondItem="20Y-aL-Awp" secondAttribute="bottom" constant="5" id="Ldd-c6-NrN"/>
+                <constraint firstItem="eeZ-UA-Arh" firstAttribute="centerY" secondItem="Cik-rG-zEf" secondAttribute="centerY" id="Lyz-lg-6yt"/>
+                <constraint firstItem="Mgu-IK-vzM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="VBv-iV-xRx"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Mgu-IK-vzM" secondAttribute="trailing" id="WGH-58-n0L"/>
+                <constraint firstItem="eeZ-UA-Arh" firstAttribute="top" secondItem="Mgu-IK-vzM" secondAttribute="bottom" constant="11" id="XRe-C2-9ih"/>
+                <constraint firstItem="20Y-aL-Awp" firstAttribute="top" secondItem="eeZ-UA-Arh" secondAttribute="bottom" constant="3" id="jRG-dQ-eqx"/>
+                <constraint firstItem="1gU-tq-qoV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lQf-cj-Xvs"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="1gU-tq-qoV" secondAttribute="trailing" id="v1t-Ys-gt2"/>
+                <constraint firstItem="Mgu-IK-vzM" firstAttribute="top" secondItem="1gU-tq-qoV" secondAttribute="bottom" id="vU3-ES-aSC"/>
+                <constraint firstItem="Xif-cP-fUK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="33" id="z1C-gO-jnt"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+</document>

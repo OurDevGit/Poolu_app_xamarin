@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Avenir.ttc">
+            <string>Avenir-Roman</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TextInputViewController" customModule="Poolr" customModuleProvider="target">
+            <connections>
+                <outlet property="errorLabel" destination="QCb-5o-8DV" id="raS-5k-aNr"/>
+                <outlet property="textField" destination="MFW-uV-7XE" id="5ic-FH-67P"/>
+                <outlet property="titleLabel" destination="y3H-XR-nSW" id="VTz-YA-cN4"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="312" height="80"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y3H-XR-nSW">
+                    <rect key="frame" x="0.0" y="10" width="312" height="19"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="19" id="lFQ-L3-9IK"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="14"/>
+                    <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MFW-uV-7XE">
+                    <rect key="frame" x="0.0" y="33" width="312" height="31"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="18"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                    <connections>
+                        <action selector="done:" destination="-1" eventType="editingDidEndOnExit" id="Acu-9C-Ke2"/>
+                    </connections>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QCb-5o-8DV">
+                    <rect key="frame" x="0.0" y="64" width="312" height="16"/>
+                    <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="12"/>
+                    <color key="textColor" red="0.95686274509803915" green="0.2627450980392157" blue="0.21176470588235294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="QCb-5o-8DV" firstAttribute="top" secondItem="MFW-uV-7XE" secondAttribute="bottom" id="974-5w-Jcs"/>
+                <constraint firstItem="MFW-uV-7XE" firstAttribute="trailing" secondItem="y3H-XR-nSW" secondAttribute="trailing" id="IXI-9a-FQ2"/>
+                <constraint firstAttribute="bottom" secondItem="MFW-uV-7XE" secondAttribute="bottom" constant="16" id="LX6-3O-X70"/>
+                <constraint firstItem="y3H-XR-nSW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Lee-Ad-IuH"/>
+                <constraint firstAttribute="bottom" secondItem="y3H-XR-nSW" secondAttribute="bottom" constant="51" id="NrD-Bz-4ru"/>
+                <constraint firstItem="MFW-uV-7XE" firstAttribute="leading" secondItem="y3H-XR-nSW" secondAttribute="leading" id="Ojj-d7-ddx"/>
+                <constraint firstItem="QCb-5o-8DV" firstAttribute="leading" secondItem="MFW-uV-7XE" secondAttribute="leading" id="QT3-Af-ga3"/>
+                <constraint firstItem="y3H-XR-nSW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="ZBb-n0-lpB"/>
+                <constraint firstAttribute="trailing" secondItem="y3H-XR-nSW" secondAttribute="trailing" id="kjx-8T-gMn"/>
+                <constraint firstItem="MFW-uV-7XE" firstAttribute="top" secondItem="y3H-XR-nSW" secondAttribute="bottom" constant="4" id="maN-PZ-CJd"/>
+                <constraint firstItem="QCb-5o-8DV" firstAttribute="trailing" secondItem="MFW-uV-7XE" secondAttribute="trailing" id="rIO-bd-rzL"/>
+                <constraint firstAttribute="bottom" secondItem="QCb-5o-8DV" secondAttribute="bottom" id="sQ0-95-0gw"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="28" y="63"/>
+        </view>
+    </objects>
+</document>

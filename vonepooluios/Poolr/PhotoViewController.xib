@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhotoViewController" customModule="Poolr" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="aou-pK-P5b" id="mTw-ky-D95"/>
+                <outlet property="headerView" destination="iVU-kB-B5M" id="TsE-Qz-QNh"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iVU-kB-B5M">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="72"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="72" id="2PT-9O-8Lw"/>
+                    </constraints>
+                </view>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="aou-pK-P5b">
+                    <rect key="frame" x="0.0" y="72" width="375" height="595"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Z84-3Y-siI">
+                        <size key="itemSize" width="90" height="90"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="aou-pK-P5b" secondAttribute="trailing" id="7rp-eC-llv"/>
+                <constraint firstItem="aou-pK-P5b" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="BeP-OA-YyJ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="iVU-kB-B5M" secondAttribute="trailing" id="W4S-Rw-V9u"/>
+                <constraint firstItem="iVU-kB-B5M" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="WxZ-gn-Jdz"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="aou-pK-P5b" secondAttribute="bottom" id="gYe-Os-8gB"/>
+                <constraint firstItem="aou-pK-P5b" firstAttribute="top" secondItem="iVU-kB-B5M" secondAttribute="bottom" id="jLR-j1-c48"/>
+                <constraint firstItem="iVU-kB-B5M" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="mcj-Dh-VBE"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="34.5" y="464.5"/>
+        </view>
+    </objects>
+</document>

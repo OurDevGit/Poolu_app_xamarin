@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TicketPhotoViewController" customModule="Poolr" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="86W-wR-bFZ" id="MbD-g7-VxR"/>
+                <outlet property="headerView" destination="LHM-ds-Crw" id="aWA-dg-FOJ"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LHM-ds-Crw">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="72"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="72" id="ItM-Gb-ppn"/>
+                    </constraints>
+                </view>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="86W-wR-bFZ">
+                    <rect key="frame" x="0.0" y="72" width="375" height="595"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="0Lz-aE-H6U">
+                        <size key="itemSize" width="90" height="90"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="86W-wR-bFZ" firstAttribute="top" secondItem="LHM-ds-Crw" secondAttribute="bottom" id="3Up-el-Bxg"/>
+                <constraint firstItem="LHM-ds-Crw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9po-vc-04C"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="LHM-ds-Crw" secondAttribute="trailing" id="Dt3-Cm-3XX"/>
+                <constraint firstItem="86W-wR-bFZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="cyO-j3-h8n"/>
+                <constraint firstItem="86W-wR-bFZ" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="jsr-MZ-1bJ"/>
+                <constraint firstItem="LHM-ds-Crw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="mkV-9C-fgi"/>
+                <constraint firstAttribute="bottom" secondItem="86W-wR-bFZ" secondAttribute="bottom" id="vgw-Id-kuY"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+</document>

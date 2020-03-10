@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Poolr" customModuleProvider="target">
+            <connections>
+                <outlet property="loginButton" destination="KZf-O6-a3b" id="syP-MC-aU2"/>
+                <outlet property="pageControl" destination="JUR-st-ZCq" id="osh-vp-Bld"/>
+                <outlet property="scrollView" destination="n8E-ma-Xkv" id="BiW-3Y-ynn"/>
+                <outlet property="signUpButton" destination="5Mz-cM-bL6" id="ein-eP-SYt"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homePageFullGraphic" translatesAutoresizingMaskIntoConstraints="NO" id="Qfj-12-5fi">
+                    <rect key="frame" x="115.5" y="79" width="144" height="136"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="136" id="CLl-Sb-fTJ"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="poolrType" translatesAutoresizingMaskIntoConstraints="NO" id="blV-3a-iDo">
+                    <rect key="frame" x="125.5" y="237" width="124" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Cbs-0x-tR5"/>
+                    </constraints>
+                </imageView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="n8E-ma-Xkv">
+                    <rect key="frame" x="40" y="384" width="297" height="75"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="75" id="6LU-bi-0q2"/>
+                        <constraint firstAttribute="width" constant="297" id="dY2-OM-wvV"/>
+                    </constraints>
+                </scrollView>
+                <pageControl opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="JUR-st-ZCq">
+                    <rect key="frame" x="160" y="471" width="56" height="37"/>
+                </pageControl>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Mz-cM-bL6">
+                    <rect key="frame" x="34" y="584" width="307" height="56"/>
+                    <color key="backgroundColor" red="0.4941176471" green="0.82745098039999998" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="56" id="ZIF-mf-DJZ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="19"/>
+                    <state key="normal" title="Continue">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="signUp:" destination="-1" eventType="touchUpInside" id="vJV-Dv-Vcg"/>
+                    </connections>
+                </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KZf-O6-a3b">
+                    <rect key="frame" x="34" y="550" width="49" height="36"/>
+                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+                    <state key="normal" title="Log In">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="logIn:" destination="-1" eventType="touchUpInside" id="ozT-NJ-JQH"/>
+                    </connections>
+                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0Vs-Kx-wGM">
+                    <rect key="frame" x="122.5" y="283" width="130" height="27.5"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="J1V-gs-Ctg">
+                            <rect key="frame" x="0.0" y="0.0" width="130" height="27.5"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share Dreams" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xxt-0z-x5r">
+                                    <rect key="frame" x="0.0" y="0.0" width="130" height="27.5"/>
+                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="20"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="blV-3a-iDo" firstAttribute="top" secondItem="Qfj-12-5fi" secondAttribute="bottom" constant="22" id="4cw-RA-v6G"/>
+                <constraint firstItem="KZf-O6-a3b" firstAttribute="leading" secondItem="5Mz-cM-bL6" secondAttribute="leading" id="5W1-8q-3HY"/>
+                <constraint firstItem="JUR-st-ZCq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="160" id="6oy-6R-R9p"/>
+                <constraint firstItem="blV-3a-iDo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="7Cm-qK-2gK"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="5Mz-cM-bL6" secondAttribute="bottom" constant="27" id="9Ay-Jn-9Vu"/>
+                <constraint firstItem="Xxt-0z-x5r" firstAttribute="top" secondItem="blV-3a-iDo" secondAttribute="bottom" constant="6" id="A5q-tP-WmU"/>
+                <constraint firstItem="n8E-ma-Xkv" firstAttribute="centerX" secondItem="JUR-st-ZCq" secondAttribute="centerX" id="UzX-Kc-NwC"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="KZf-O6-a3b" secondAttribute="bottom" constant="81" id="Ycr-Ta-gSK"/>
+                <constraint firstItem="0Vs-Kx-wGM" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Yxm-vy-V6w"/>
+                <constraint firstItem="Qfj-12-5fi" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="59" id="fKs-5Q-2vb"/>
+                <constraint firstItem="Qfj-12-5fi" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="hVf-fT-ut4"/>
+                <constraint firstItem="JUR-st-ZCq" firstAttribute="top" secondItem="n8E-ma-Xkv" secondAttribute="bottom" constant="12" id="lbj-gU-Rxj"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="JUR-st-ZCq" secondAttribute="trailing" constant="159" id="rVQ-NX-LKP"/>
+                <constraint firstItem="n8E-ma-Xkv" firstAttribute="top" secondItem="Xxt-0z-x5r" secondAttribute="bottom" constant="73.5" id="tdg-aq-9ln"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5Mz-cM-bL6" secondAttribute="trailing" constant="34" id="wRH-rk-HEK"/>
+                <constraint firstItem="5Mz-cM-bL6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="34" id="yg9-Ia-Woz"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="homePageFullGraphic" width="144" height="136"/>
+        <image name="poolrType" width="124" height="41"/>
+    </resources>
+</document>

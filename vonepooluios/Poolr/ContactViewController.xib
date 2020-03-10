@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContactViewController" customModule="Poolr" customModuleProvider="target">
+            <connections>
+                <outlet property="continueButton" destination="re0-Bw-Mdw" id="Ha6-3O-TAM"/>
+                <outlet property="textInputStackView" destination="1nJ-on-DNe" id="JCr-GS-xZo"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Information" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvA-5j-xhR">
+                    <rect key="frame" x="32" y="52" width="310" height="25"/>
+                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
+                    <nil key="textColor"/>
+                    <color key="highlightedColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSY-xm-fTK">
+                    <rect key="frame" x="32" y="83" width="310" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="lxF-bu-1FX"/>
+                    </constraints>
+                    <attributedString key="attributedText">
+                        <fragment>
+                            <string key="content">Enter your contact information accurately. You will understand why once your pool wins, and we need to get you your share of the jackpot!</string>
+                            <attributes>
+                                <color key="NSColor" red="0.42745098040000001" green="0.43137254899999999" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <font key="NSFont" size="14" name="Avenir-Roman"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="0.40000000000000002" lineHeightMultiple="1" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="246" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1nJ-on-DNe">
+                    <rect key="frame" x="32" y="145" width="312" height="320"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="320" id="Auu-G9-ZUc"/>
+                    </constraints>
+                </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="248" text="Please use accurate information so that your entry in a Poolu's pool is legal. This is to protect you and your winnings." lineBreakMode="tailTruncation" numberOfLines="3" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVd-Dm-1Kh">
+                    <rect key="frame" x="32" y="594.5" width="310" height="49.5"/>
+                    <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="12"/>
+                    <color key="textColor" red="0.42745098040000001" green="0.43137254899999999" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="re0-Bw-Mdw">
+                    <rect key="frame" x="34" y="526.5" width="307" height="56"/>
+                    <color key="backgroundColor" red="0.4941176471" green="0.82745098039999998" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="56" id="xlO-sE-5Oo"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
+                    <state key="normal" title="Continue">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="next:" destination="-1" eventType="touchUpInside" id="ZVI-BA-HGa"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="cvA-5j-xhR" secondAttribute="trailing" constant="33" id="1ON-3h-3zI"/>
+                <constraint firstItem="dSY-xm-fTK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="32" id="40n-7G-jSe"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="dSY-xm-fTK" secondAttribute="trailing" constant="33" id="4ys-O3-wjY"/>
+                <constraint firstItem="1nJ-on-DNe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="6TZ-qj-HzA"/>
+                <constraint firstItem="OVd-Dm-1Kh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="GC5-dv-XgW"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="1nJ-on-DNe" secondAttribute="trailing" constant="31" id="Inl-e5-8Rx"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="re0-Bw-Mdw" secondAttribute="trailing" constant="34" id="K22-aQ-lJ0"/>
+                <constraint firstItem="OVd-Dm-1Kh" firstAttribute="top" secondItem="re0-Bw-Mdw" secondAttribute="bottom" constant="12" id="Rg2-IC-OHv"/>
+                <constraint firstItem="dSY-xm-fTK" firstAttribute="top" secondItem="cvA-5j-xhR" secondAttribute="bottom" constant="6" id="W34-UF-P9Y"/>
+                <constraint firstItem="cvA-5j-xhR" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="32" id="dxR-J3-ftP"/>
+                <constraint firstItem="1nJ-on-DNe" firstAttribute="top" secondItem="dSY-xm-fTK" secondAttribute="bottom" constant="2" id="f5e-Zu-Xqc"/>
+                <constraint firstItem="cvA-5j-xhR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="mvD-Mn-dUP"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="OVd-Dm-1Kh" secondAttribute="bottom" constant="23" id="s8t-cz-9Yo"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="OVd-Dm-1Kh" secondAttribute="trailing" constant="33" id="v95-75-Rdd"/>
+                <constraint firstItem="re0-Bw-Mdw" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="34" id="yPo-m2-d9g"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+</document>

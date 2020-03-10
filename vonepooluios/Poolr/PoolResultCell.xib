@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="316" id="KGk-i7-Jjw" customClass="PoolResultCell" customModule="Poolr" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="316"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="400" height="315.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P1M-Gf-qTd">
+                        <rect key="frame" x="34" y="22" width="164" height="27"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="164" id="QuZ-n8-u8p"/>
+                            <constraint firstAttribute="height" constant="27" id="tOO-fi-cjf"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="24"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DvF-No-8gh">
+                        <rect key="frame" x="300" y="26" width="67" height="37"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="67" id="oxx-BS-8RK"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="zen-kq-byu"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Winning #'s" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GL1-Ka-Jzm">
+                        <rect key="frame" x="34" y="57" width="74" height="19.5"/>
+                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
+                        <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3L-5L-cqI">
+                        <rect key="frame" x="227" y="67" width="140" height="0.0"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="140" id="BR2-Qd-17V"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
+                        <color key="textColor" red="0.4941176471" green="0.82745098039999998" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jackpot Value:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p7T-Lp-Qnz">
+                        <rect key="frame" x="34" y="80.5" width="92.5" height="19.5"/>
+                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
+                        <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R7x-di-7oJ">
+                        <rect key="frame" x="367" y="91" width="0.0" height="0.0"/>
+                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
+                        <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pool Win The Jackpot?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Abr-rb-YPg">
+                        <rect key="frame" x="34" y="104" width="145.5" height="19.5"/>
+                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
+                        <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UD4-nP-j6l">
+                        <rect key="frame" x="367" y="114" width="0.0" height="0.0"/>
+                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
+                        <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jackpot Share:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FIR-vZ-q9y">
+                        <rect key="frame" x="34" y="127.5" width="93.5" height="19.5"/>
+                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
+                        <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NpK-OT-hxx">
+                        <rect key="frame" x="367" y="137.5" width="0.0" height="0.0"/>
+                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
+                        <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pooler's Share:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51H-zz-ESO">
+                        <rect key="frame" x="34" y="151" width="95" height="19.5"/>
+                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
+                        <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xju-2W-A63">
+                        <rect key="frame" x="367" y="161" width="0.0" height="0.0"/>
+                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
+                        <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Winnings:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGf-ph-M3Z">
+                        <rect key="frame" x="34" y="174.5" width="86" height="19.5"/>
+                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
+                        <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vpb-fU-FT6">
+                        <rect key="frame" x="367" y="184.5" width="0.0" height="0.0"/>
+                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
+                        <color key="textColor" red="0.46666666670000001" green="0.46666666670000001" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBc-xH-sB6">
+                        <rect key="frame" x="34" y="209" width="103" height="32"/>
+                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
+                        <state key="normal" title="View My Tickets">
+                            <color key="titleColor" red="0.4941176471" green="0.82745098039999998" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="viewMyTickets:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Hcv-Vl-RZ1"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8eH-LT-ACd">
+                        <rect key="frame" x="34" y="254" width="179" height="32"/>
+                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="14"/>
+                        <state key="normal" title="View All Players And Tickets">
+                            <color key="titleColor" red="0.4941176471" green="0.82745098039999998" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="viewPlayersAndTickets:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Gkn-RG-zOZ"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="DvF-No-8gh" secondAttribute="trailing" constant="33" id="0By-3q-ryP"/>
+                    <constraint firstItem="Abr-rb-YPg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="34" id="0s8-Yh-LEc"/>
+                    <constraint firstItem="ZBc-xH-sB6" firstAttribute="top" secondItem="cGf-ph-M3Z" secondAttribute="bottom" constant="15" id="38A-Wq-3uu"/>
+                    <constraint firstItem="NpK-OT-hxx" firstAttribute="centerY" secondItem="FIR-vZ-q9y" secondAttribute="centerY" id="45o-VY-gg4"/>
+                    <constraint firstItem="Abr-rb-YPg" firstAttribute="top" secondItem="p7T-Lp-Qnz" secondAttribute="bottom" constant="4" id="5pa-9J-QhR"/>
+                    <constraint firstItem="cGf-ph-M3Z" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="34" id="84Y-di-fP8"/>
+                    <constraint firstItem="p7T-Lp-Qnz" firstAttribute="top" secondItem="GL1-Ka-Jzm" secondAttribute="bottom" constant="4" id="9AN-6d-TmC"/>
+                    <constraint firstItem="FIR-vZ-q9y" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="34" id="A5j-lZ-pnQ"/>
+                    <constraint firstItem="FIR-vZ-q9y" firstAttribute="top" secondItem="Abr-rb-YPg" secondAttribute="bottom" constant="4" id="ASj-Gt-vBl"/>
+                    <constraint firstAttribute="bottom" secondItem="8eH-LT-ACd" secondAttribute="bottom" constant="29.5" id="Ane-92-tCC"/>
+                    <constraint firstItem="Xju-2W-A63" firstAttribute="centerY" secondItem="51H-zz-ESO" secondAttribute="centerY" id="BGa-mt-MIc"/>
+                    <constraint firstItem="51H-zz-ESO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="34" id="Bgt-CO-cKl"/>
+                    <constraint firstItem="DvF-No-8gh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="26" id="Dwp-Qg-aKr"/>
+                    <constraint firstItem="8eH-LT-ACd" firstAttribute="top" secondItem="ZBc-xH-sB6" secondAttribute="bottom" constant="13" id="EPi-6n-fdL"/>
+                    <constraint firstItem="UD4-nP-j6l" firstAttribute="centerY" secondItem="Abr-rb-YPg" secondAttribute="centerY" id="Evv-lI-TUQ"/>
+                    <constraint firstItem="GL1-Ka-Jzm" firstAttribute="top" secondItem="P1M-Gf-qTd" secondAttribute="bottom" constant="8" id="Foh-MY-nhf"/>
+                    <constraint firstItem="R7x-di-7oJ" firstAttribute="centerY" secondItem="p7T-Lp-Qnz" secondAttribute="centerY" id="HeL-in-g7J"/>
+                    <constraint firstAttribute="trailing" secondItem="NpK-OT-hxx" secondAttribute="trailing" constant="33" id="J3R-ZL-PrI"/>
+                    <constraint firstAttribute="trailing" secondItem="Z3L-5L-cqI" secondAttribute="trailing" constant="33" id="Ld1-1O-Gza"/>
+                    <constraint firstAttribute="trailing" secondItem="Xju-2W-A63" secondAttribute="trailing" constant="33" id="NIe-8W-QiE"/>
+                    <constraint firstItem="Z3L-5L-cqI" firstAttribute="centerY" secondItem="GL1-Ka-Jzm" secondAttribute="centerY" id="PeQ-O5-Gek"/>
+                    <constraint firstItem="P1M-Gf-qTd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="34" id="RUw-Bf-bUh"/>
+                    <constraint firstAttribute="trailing" secondItem="R7x-di-7oJ" secondAttribute="trailing" constant="33" id="VTF-0y-QCw"/>
+                    <constraint firstItem="cGf-ph-M3Z" firstAttribute="centerY" secondItem="Vpb-fU-FT6" secondAttribute="centerY" id="bKa-2S-wkF"/>
+                    <constraint firstItem="8eH-LT-ACd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="34" id="cQP-C9-2i2"/>
+                    <constraint firstItem="P1M-Gf-qTd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="22" id="f8L-0V-Ass"/>
+                    <constraint firstItem="51H-zz-ESO" firstAttribute="top" secondItem="FIR-vZ-q9y" secondAttribute="bottom" constant="4" id="kD9-vY-GqR"/>
+                    <constraint firstItem="ZBc-xH-sB6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="34" id="mOn-FZ-Akh"/>
+                    <constraint firstItem="Z3L-5L-cqI" firstAttribute="top" secondItem="DvF-No-8gh" secondAttribute="bottom" constant="4" id="mwL-Rf-NgF"/>
+                    <constraint firstItem="cGf-ph-M3Z" firstAttribute="top" secondItem="51H-zz-ESO" secondAttribute="bottom" constant="4" id="pVy-0n-OQ5"/>
+                    <constraint firstAttribute="trailing" secondItem="Vpb-fU-FT6" secondAttribute="trailing" constant="33" id="plF-R3-9PK"/>
+                    <constraint firstItem="p7T-Lp-Qnz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="34" id="rpE-bE-8Xg"/>
+                    <constraint firstAttribute="trailing" secondItem="UD4-nP-j6l" secondAttribute="trailing" constant="33" id="tIG-S3-ms9"/>
+                    <constraint firstItem="GL1-Ka-Jzm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="34" id="zX2-Aj-HHu"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="allPlayersAndTicketsLabel" destination="8eH-LT-ACd" id="Qqu-uS-44H"/>
+                <outlet property="amoutWonLabel" destination="Vpb-fU-FT6" id="K8d-vS-7YH"/>
+                <outlet property="drawDateLabel" destination="DvF-No-8gh" id="HQO-QC-TFK"/>
+                <outlet property="jackpotLabel" destination="R7x-di-7oJ" id="1nL-Gl-XuD"/>
+                <outlet property="jackpotShareLabel" destination="NpK-OT-hxx" id="DcL-QI-PFT"/>
+                <outlet property="myWinningsLabel" destination="cGf-ph-M3Z" id="AM6-Kg-BXk"/>
+                <outlet property="poolNameLabel" destination="P1M-Gf-qTd" id="imZ-zH-7en"/>
+                <outlet property="poolShareLabel" destination="Xju-2W-A63" id="6x8-7d-ZA8"/>
+                <outlet property="poolWinJackpotLabel" destination="UD4-nP-j6l" id="Qru-DU-3Lt"/>
+                <outlet property="viewMyTicketsLabel" destination="ZBc-xH-sB6" id="BB7-If-L3U"/>
+                <outlet property="winningNumbersLabel" destination="Z3L-5L-cqI" id="294-8M-v96"/>
+            </connections>
+            <point key="canvasLocation" x="46" y="164"/>
+        </tableViewCell>
+    </objects>
+</document>

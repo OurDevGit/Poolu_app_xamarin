@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="jGW-vk-f5J">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="IUF-mk-80l">
+            <objects>
+                <viewController id="jGW-vk-f5J" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8yh-nX-Nt9"/>
+                        <viewControllerLayoutGuide type="bottom" id="oAc-Wc-2XS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nD5-7c-Ydb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="ACh-E7-hHT">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="757.5"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homePageFullGraphic" translatesAutoresizingMaskIntoConstraints="NO" id="KFE-tS-Y2a">
+                                <rect key="frame" x="88" y="222" width="144" height="144"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="144" id="K7j-ri-KX2"/>
+                                    <constraint firstAttribute="height" constant="144" id="efw-Zx-Xey"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KFE-tS-Y2a" firstAttribute="top" secondItem="nD5-7c-Ydb" secondAttribute="topMargin" constant="202" id="3y7-Rt-1mb"/>
+                            <constraint firstAttribute="trailing" secondItem="ACh-E7-hHT" secondAttribute="trailing" id="5KB-Ns-dgd"/>
+                            <constraint firstItem="ACh-E7-hHT" firstAttribute="leading" secondItem="nD5-7c-Ydb" secondAttribute="leading" id="863-nP-hj8"/>
+                            <constraint firstItem="ACh-E7-hHT" firstAttribute="top" secondItem="nD5-7c-Ydb" secondAttribute="top" id="K7g-pA-PL6"/>
+                            <constraint firstItem="ACh-E7-hHT" firstAttribute="bottom" secondItem="nD5-7c-Ydb" secondAttribute="bottom" multiplier="4:3" id="L8o-aI-twd"/>
+                            <constraint firstItem="KFE-tS-Y2a" firstAttribute="centerX" secondItem="ACh-E7-hHT" secondAttribute="centerX" id="STI-Ji-F6c"/>
+                            <constraint firstItem="ACh-E7-hHT" firstAttribute="centerX" secondItem="KFE-tS-Y2a" secondAttribute="centerX" id="stW-5E-25f"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wzq-ge-vYO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="163.768115942029" y="409.23913043478262"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="background" width="375" height="667"/>
+        <image name="homePageFullGraphic" width="144" height="136"/>
+    </resources>
+</document>

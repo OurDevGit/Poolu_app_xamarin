@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Avenir.ttc">
+            <string>Avenir-Medium</string>
+            <string>Avenir-Roman</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MobileVerifyViewController" customModule="Poolr" customModuleProvider="target">
+            <connections>
+                <outlet property="continueButton" destination="cgX-Mx-qCj" id="uSh-mz-PQ6"/>
+                <outlet property="instructionLabel" destination="1jZ-M6-Vh3" id="pdG-xI-ngC"/>
+                <outlet property="textFieldsStackView" destination="ZRo-Qx-K8L" id="ZIv-LK-Q7F"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verify this Device" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xB7-Ex-aaL">
+                    <rect key="frame" x="32" y="52" width="310" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="NYy-2x-nTc"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
+                    <nil key="textColor"/>
+                    <color key="highlightedColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="248" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1jZ-M6-Vh3">
+                    <rect key="frame" x="32" y="83" width="310" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="sXs-O2-u3M"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="14"/>
+                    <color key="textColor" red="0.42745098040000001" green="0.43137254899999999" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZRo-Qx-K8L">
+                    <rect key="frame" x="32" y="129" width="312" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="W8l-Hl-Ubn"/>
+                    </constraints>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgX-Mx-qCj">
+                    <rect key="frame" x="34" y="584" width="307" height="56"/>
+                    <color key="backgroundColor" red="0.4941176471" green="0.82745098039999998" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="56" id="Cn9-9E-LJb"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
+                    <state key="normal" title="Continue">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="next:" destination="-1" eventType="touchUpInside" id="3FK-jT-qNN"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="cgX-Mx-qCj" secondAttribute="bottom" constant="27" id="7zI-Up-xqV"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="1jZ-M6-Vh3" secondAttribute="trailing" constant="33" id="9lE-Yd-IiI"/>
+                <constraint firstItem="cgX-Mx-qCj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="34" id="NAr-bB-xYp"/>
+                <constraint firstItem="xB7-Ex-aaL" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="32" id="NXL-8m-yuu"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ZRo-Qx-K8L" secondAttribute="trailing" constant="31" id="PlC-n8-N6S"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="cgX-Mx-qCj" secondAttribute="trailing" constant="34" id="ZCs-F7-A6o"/>
+                <constraint firstItem="xB7-Ex-aaL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="32" id="arK-Ma-yJl"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xB7-Ex-aaL" secondAttribute="trailing" constant="33" id="cv3-P3-zZW"/>
+                <constraint firstItem="1jZ-M6-Vh3" firstAttribute="top" secondItem="xB7-Ex-aaL" secondAttribute="bottom" constant="6" id="fUR-8n-LoM"/>
+                <constraint firstItem="ZRo-Qx-K8L" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="fq6-ym-ThW"/>
+                <constraint firstItem="1jZ-M6-Vh3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="32" id="ndQ-zH-Ryj"/>
+                <constraint firstItem="ZRo-Qx-K8L" firstAttribute="top" secondItem="1jZ-M6-Vh3" secondAttribute="bottom" constant="6" id="sru-Z2-zBW"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+</document>
