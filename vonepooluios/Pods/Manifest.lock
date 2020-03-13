@@ -1,28 +1,36 @@
 PODS:
   - Alamofire (4.7.2)
+  - OneSignal (2.12.6)
   - SCLAlertView (0.8)
   - SimpleKeychain (0.8.1)
+  - TapjoySDK (12.4.2)
   - Toast-Swift (2.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
+  - OneSignal (< 3.0, >= 2.11.2)
   - SCLAlertView (~> 0.8)
   - SimpleKeychain (~> 0.8)
+  - TapjoySDK
   - Toast-Swift (~> 2.0)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - Alamofire
+    - OneSignal
     - SCLAlertView
     - SimpleKeychain
+    - TapjoySDK
     - Toast-Swift
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  OneSignal: a6df91542d1cf133b9dd19d89f2b533d8f2d3163
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   SimpleKeychain: e2485c28d82fcece35e9e41faeac42ebfe614815
+  TapjoySDK: c8d73f291cfe922cb8bb2c3ae09b5af0b2863841
   Toast-Swift: 5b2f8f720f7e78e48511f693df1f9c9a6e38a25a
 
-PODFILE CHECKSUM: 1e527f6fb0c612341f77a02efc492c45878ac044
+PODFILE CHECKSUM: fd62272ca5be3d1241decb08ca8d8d571a0af9c2
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.8.4

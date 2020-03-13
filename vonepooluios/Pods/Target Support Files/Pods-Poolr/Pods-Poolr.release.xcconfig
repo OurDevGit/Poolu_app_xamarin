@@ -1,11 +1,12 @@
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Alamofire" "${PODS_CONFIGURATION_BUILD_DIR}/SCLAlertView" "${PODS_CONFIGURATION_BUILD_DIR}/SimpleKeychain" "${PODS_CONFIGURATION_BUILD_DIR}/Toast-Swift"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Alamofire" "${PODS_CONFIGURATION_BUILD_DIR}/SCLAlertView" "${PODS_CONFIGURATION_BUILD_DIR}/SimpleKeychain" "${PODS_CONFIGURATION_BUILD_DIR}/Toast-Swift" "${PODS_ROOT}/OneSignal/iOS_SDK/OneSignalSDK/Framework" "${PODS_ROOT}/TapjoySDK/TapjoySDK_iOS_v12.4.2/Libraries/Tapjoy.embeddedframework" "$(PODS_ROOT)/TapjoySDK/**"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Alamofire/Alamofire.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SCLAlertView/SCLAlertView.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SimpleKeychain/SimpleKeychain.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Toast-Swift/Toast_Swift.framework/Headers"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_CFLAGS = $(inherited) -iquote "${PODS_CONFIGURATION_BUILD_DIR}/Alamofire/Alamofire.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/SCLAlertView/SCLAlertView.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/SimpleKeychain/SimpleKeychain.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/Toast-Swift/Toast_Swift.framework/Headers"
-OTHER_LDFLAGS = $(inherited) -framework "Alamofire" -framework "SCLAlertView" -framework "SimpleKeychain" -framework "Toast_Swift"
-OTHER_SWIFT_FLAGS = $(inherited) "-D" "COCOAPODS"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"c++" -l"sqlite3.0" -l"xml2" -l"z" -framework "Alamofire" -framework "CFNetwork" -framework "CoreData" -framework "CoreGraphics" -framework "CoreLocation" -framework "CoreMotion" -framework "Foundation" -framework "ImageIO" -framework "MapKit" -framework "MediaPlayer" -framework "MobileCoreServices" -framework "OneSignal" -framework "QuartzCore" -framework "SCLAlertView" -framework "Security" -framework "SimpleKeychain" -framework "SystemConfiguration" -framework "Tapjoy" -framework "Toast_Swift" -framework "UIKit" -framework "UserNotifications" -framework "WebKit" -weak_framework "AdSupport" -weak_framework "CoreTelephony" -weak_framework "StoreKit"
+OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
 PODS_ROOT = ${SRCROOT}/Pods
+USE_RECURSIVE_SCRIPT_INPUTS_IN_SCRIPT_PHASES = YES

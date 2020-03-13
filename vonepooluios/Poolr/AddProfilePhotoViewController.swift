@@ -9,6 +9,7 @@
 import UIKit
 import Toast_Swift
 import SCLAlertView
+import OneSignal
 
 class AddProfilePhotoViewController: UIViewController {
     
@@ -142,6 +143,10 @@ class AddProfilePhotoViewController: UIViewController {
                 print(error)
                 ViewControllerHelper().showSCLErrorAlert(title: "Sign Up Error", errorMessage: error.showError)
             } else if let userData = result, UserDataPersistenceHelper.persistAccountData(userData) {
+                let myCustomUniqueUserId = userData.userId
+                
+                OneSignal.setExternalUserId(myCustomUniqueUserId ?? "")
+                SignUpData.sharedInstance.oneSignalId = userData.userId ?? "";
                 if let photo = SignUpData.sharedInstance.photo {
                     strongSelf.uploadSignUpProfilePhoto(photo)
                 } else {

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		021B5409241AC0BC001DE4AA /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021B5408241AC0BC001DE4AA /* NotificationService.swift */; };
+		021B540D241AC0BC001DE4AA /* PoolrNotifServiceExt.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 021B5406241AC0BC001DE4AA /* PoolrNotifServiceExt.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		021B5416241ACED3001DE4AA /* Tapjoy.embeddedframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 021B5413241ACED3001DE4AA /* Tapjoy.embeddedframework */; };
+		021B5417241ACED3001DE4AA /* TapjoyResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 021B5415241ACED3001DE4AA /* TapjoyResources.bundle */; };
 		087DBF93E59D4E9A269CB25D /* Pods_Poolr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFDD63A73E9117837C6FF892 /* Pods_Poolr.framework */; };
 		0E06F593207BD61B00C9BC6D /* WalkThroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E06F591207BD61B00C9BC6D /* WalkThroughViewController.swift */; };
 		0E06F594207BD61B00C9BC6D /* WalkThroughViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E06F592207BD61B00C9BC6D /* WalkThroughViewController.xib */; };
@@ -108,9 +112,39 @@
 		1AC526F51F09503800C80E75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC526F41F09503800C80E75 /* AppDelegate.swift */; };
 		1AC526FA1F09503800C80E75 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AC526F81F09503800C80E75 /* Main.storyboard */; };
 		1AC526FC1F09503800C80E75 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AC526FB1F09503800C80E75 /* Assets.xcassets */; };
+		D8C448043DB076C0BF20771D /* Pods_PoolrNotifServiceExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD53D3BD27A836781A466CF5 /* Pods_PoolrNotifServiceExt.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		021B540B241AC0BC001DE4AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1AC526E91F09503800C80E75 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 021B5405241AC0BC001DE4AA;
+			remoteInfo = PoolrNotifServiceExt;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		021B5411241AC0BC001DE4AA /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				021B540D241AC0BC001DE4AA /* PoolrNotifServiceExt.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		021B5406241AC0BC001DE4AA /* PoolrNotifServiceExt.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PoolrNotifServiceExt.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		021B5408241AC0BC001DE4AA /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		021B540A241AC0BC001DE4AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		021B5413241ACED3001DE4AA /* Tapjoy.embeddedframework */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Tapjoy.embeddedframework; path = ../../../Poolu_app_xamarin/vonepooluios/Tapjoy.embeddedframework; sourceTree = "<group>"; };
+		021B5415241ACED3001DE4AA /* TapjoyResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TapjoyResources.bundle; sourceTree = "<group>"; };
 		08F83761AD290D7579F77E7B /* Pods-Poolr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Poolr.release.xcconfig"; path = "Pods/Target Support Files/Pods-Poolr/Pods-Poolr.release.xcconfig"; sourceTree = "<group>"; };
 		0E06F591207BD61B00C9BC6D /* WalkThroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkThroughViewController.swift; sourceTree = "<group>"; };
 		0E06F592207BD61B00C9BC6D /* WalkThroughViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalkThroughViewController.xib; sourceTree = "<group>"; };
@@ -221,22 +255,61 @@
 		1AC526F91F09503800C80E75 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1AC526FB1F09503800C80E75 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1AC527001F09503800C80E75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1BE8001FDCF75D2B522C6826 /* Pods-PoolrNotifServiceExt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoolrNotifServiceExt.release.xcconfig"; path = "Pods/Target Support Files/Pods-PoolrNotifServiceExt/Pods-PoolrNotifServiceExt.release.xcconfig"; sourceTree = "<group>"; };
 		559EA614BC32D4BF5597A1C7 /* Pods-Poolr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Poolr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Poolr/Pods-Poolr.debug.xcconfig"; sourceTree = "<group>"; };
+		67EAF5A289524020AEF700F8 /* Pods-PoolrNotifServiceExt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoolrNotifServiceExt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PoolrNotifServiceExt/Pods-PoolrNotifServiceExt.debug.xcconfig"; sourceTree = "<group>"; };
+		CD53D3BD27A836781A466CF5 /* Pods_PoolrNotifServiceExt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PoolrNotifServiceExt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFDD63A73E9117837C6FF892 /* Pods_Poolr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Poolr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		021B5403241AC0BC001DE4AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8C448043DB076C0BF20771D /* Pods_PoolrNotifServiceExt.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1AC526EE1F09503800C80E75 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				087DBF93E59D4E9A269CB25D /* Pods_Poolr.framework in Frameworks */,
+				021B5416241ACED3001DE4AA /* Tapjoy.embeddedframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		021B5407241AC0BC001DE4AA /* PoolrNotifServiceExt */ = {
+			isa = PBXGroup;
+			children = (
+				021B5408241AC0BC001DE4AA /* NotificationService.swift */,
+				021B540A241AC0BC001DE4AA /* Info.plist */,
+			);
+			path = PoolrNotifServiceExt;
+			sourceTree = "<group>";
+		};
+		021B5412241ACED3001DE4AA /* Tapjoy.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				021B5413241ACED3001DE4AA /* Tapjoy.embeddedframework */,
+				021B5414241ACED3001DE4AA /* Resources */,
+			);
+			name = Tapjoy.embeddedframework;
+			path = ../../../TapjoySDK_iOS_v12.4.2/Libraries/Tapjoy.embeddedframework;
+			sourceTree = "<group>";
+		};
+		021B5414241ACED3001DE4AA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				021B5415241ACED3001DE4AA /* TapjoyResources.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		0E08A13A20267B6B007A4312 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -412,6 +485,7 @@
 			isa = PBXGroup;
 			children = (
 				1AC526F31F09503800C80E75 /* Poolr */,
+				021B5407241AC0BC001DE4AA /* PoolrNotifServiceExt */,
 				1AC526F21F09503800C80E75 /* Products */,
 				5094CD2A11B7D883D3ABF698 /* Pods */,
 				BF0C277789C2E50D6E9BC6C1 /* Frameworks */,
@@ -422,6 +496,7 @@
 			isa = PBXGroup;
 			children = (
 				1AC526F11F09503800C80E75 /* Poolr.app */,
+				021B5406241AC0BC001DE4AA /* PoolrNotifServiceExt.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -467,6 +542,7 @@
 				0EB01E79205474FC00FBACCE /* ContactViewController.swift */,
 				0EB01E7A205474FC00FBACCE /* ContactViewController.xib */,
 				1A7FE6EB1F807596004CBEDC /* AddProfilePhotoViewController.swift */,
+				021B5412241ACED3001DE4AA /* Tapjoy.embeddedframework */,
 				1A7FE6EC1F807596004CBEDC /* AddProfilePhotoViewController.xib */,
 				0E2D56951F911E9100E9CEFA /* UpdateProfileViewController.swift */,
 				0E2D56961F911E9100E9CEFA /* UpdateProfileViewController.xib */,
@@ -479,6 +555,8 @@
 			children = (
 				559EA614BC32D4BF5597A1C7 /* Pods-Poolr.debug.xcconfig */,
 				08F83761AD290D7579F77E7B /* Pods-Poolr.release.xcconfig */,
+				67EAF5A289524020AEF700F8 /* Pods-PoolrNotifServiceExt.debug.xcconfig */,
+				1BE8001FDCF75D2B522C6826 /* Pods-PoolrNotifServiceExt.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -487,6 +565,7 @@
 			isa = PBXGroup;
 			children = (
 				DFDD63A73E9117837C6FF892 /* Pods_Poolr.framework */,
+				CD53D3BD27A836781A466CF5 /* Pods_PoolrNotifServiceExt.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -494,6 +573,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		021B5405241AC0BC001DE4AA /* PoolrNotifServiceExt */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 021B5410241AC0BC001DE4AA /* Build configuration list for PBXNativeTarget "PoolrNotifServiceExt" */;
+			buildPhases = (
+				E7ED387A3648D783ED77F7F2 /* [CP] Check Pods Manifest.lock */,
+				021B5402241AC0BC001DE4AA /* Sources */,
+				021B5403241AC0BC001DE4AA /* Frameworks */,
+				021B5404241AC0BC001DE4AA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PoolrNotifServiceExt;
+			productName = PoolrNotifServiceExt;
+			productReference = 021B5406241AC0BC001DE4AA /* PoolrNotifServiceExt.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		1AC526F01F09503800C80E75 /* Poolr */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1AC527031F09503800C80E75 /* Build configuration list for PBXNativeTarget "Poolr" */;
@@ -503,10 +600,13 @@
 				1AC526EE1F09503800C80E75 /* Frameworks */,
 				1AC526EF1F09503800C80E75 /* Resources */,
 				C50306376F598E77B49DE482 /* [CP] Embed Pods Frameworks */,
+				021B5411241AC0BC001DE4AA /* Embed App Extensions */,
+				6AA023124F79ECAFAC070E73 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				021B540C241AC0BC001DE4AA /* PBXTargetDependency */,
 			);
 			name = Poolr;
 			productName = Poolr;
@@ -519,16 +619,27 @@
 		1AC526E91F09503800C80E75 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = PoolrApp;
 				TargetAttributes = {
+					021B5405241AC0BC001DE4AA = {
+						CreatedOnToolsVersion = 10.1;
+						DevelopmentTeam = 69CZC96742;
+						ProvisioningStyle = Automatic;
+					};
 					1AC526F01F09503800C80E75 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 8M72SY2RGY;
 						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -554,11 +665,19 @@
 			projectRoot = "";
 			targets = (
 				1AC526F01F09503800C80E75 /* Poolr */,
+				021B5405241AC0BC001DE4AA /* PoolrNotifServiceExt */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		021B5404241AC0BC001DE4AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1AC526EF1F09503800C80E75 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -579,6 +698,7 @@
 				0E91D92B202E4D930053794F /* PoolerPhotoViewController.xib in Resources */,
 				0ED0742B1F9020E0001597EB /* PoolResultsViewController.xib in Resources */,
 				0ED23C031F93330000C1D8E1 /* LaunchScreen.storyboard in Resources */,
+				021B5417241ACED3001DE4AA /* TapjoyResources.bundle in Resources */,
 				0E75DB1A1FD0C2C80009AB97 /* TicketCameraViewController.xib in Resources */,
 				0ED0742F1F9034D4001597EB /* SettingsCell.xib in Resources */,
 				0E91D92F202E51B50053794F /* PhotoHeaderViewController.xib in Resources */,
@@ -618,13 +738,32 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		6AA023124F79ECAFAC070E73 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Poolr/Pods-Poolr-resources.sh",
+				"${PODS_ROOT}/TapjoySDK/TapjoySDK_iOS_v12.4.2/Libraries/Tapjoy.embeddedframework/Resources/TapjoyResources.bundle",
+				"${PODS_ROOT}/TapjoySDK/TapjoySDK_iOS_v12.4.2/Libraries/Tapjoy.embeddedframework/Tapjoy.framework/Versions/A/Resources/TapjoyResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TapjoyResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Poolr/Pods-Poolr-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C50306376F598E77B49DE482 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Poolr/Pods-Poolr-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Poolr/Pods-Poolr-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/SimpleKeychain/SimpleKeychain.framework",
@@ -639,12 +778,42 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Poolr/Pods-Poolr-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Poolr/Pods-Poolr-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7ED387A3648D783ED77F7F2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PoolrNotifServiceExt-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		021B5402241AC0BC001DE4AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				021B5409241AC0BC001DE4AA /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		1AC526ED1F09503800C80E75 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -723,6 +892,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		021B540C241AC0BC001DE4AA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 021B5405241AC0BC001DE4AA /* PoolrNotifServiceExt */;
+			targetProxy = 021B540B241AC0BC001DE4AA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		0ED23C011F9332FF00C1D8E1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -743,6 +920,57 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		021B540E241AC0BC001DE4AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67EAF5A289524020AEF700F8 /* Pods-PoolrNotifServiceExt.debug.xcconfig */;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 69CZC96742;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = PoolrNotifServiceExt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.PoolrApp.Poolr.PoolrNotifServiceExt;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		021B540F241AC0BC001DE4AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1BE8001FDCF75D2B522C6826 /* Pods-PoolrNotifServiceExt.release.xcconfig */;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 69CZC96742;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = PoolrNotifServiceExt/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.PoolrApp.Poolr.PoolrNotifServiceExt;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		1AC527011F09503800C80E75 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -856,6 +1084,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 559EA614BC32D4BF5597A1C7 /* Pods-Poolr.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Poolr/Poolr.entitlements;
@@ -883,6 +1112,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 08F83761AD290D7579F77E7B /* Pods-Poolr.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Poolr/Poolr.entitlements;
@@ -908,6 +1138,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		021B5410241AC0BC001DE4AA /* Build configuration list for PBXNativeTarget "PoolrNotifServiceExt" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				021B540E241AC0BC001DE4AA /* Debug */,
+				021B540F241AC0BC001DE4AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		1AC526EC1F09503800C80E75 /* Build configuration list for PBXProject "Poolr" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
